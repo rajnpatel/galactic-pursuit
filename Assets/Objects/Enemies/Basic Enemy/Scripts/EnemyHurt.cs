@@ -6,6 +6,7 @@ public class EnemyHurt : MonoBehaviour
 
     private AudioSource[] audioSources;
     public int enemyHealth = 5;
+    public static int level1Enemies = 20;
 
     private AudioClip explosionSound;
 
@@ -28,6 +29,7 @@ public class EnemyHurt : MonoBehaviour
             audioSources[0].PlayOneShot(laserImpactSound);
             if (enemyHealth == 0)
             {
+                level1Enemies--;
                 ShipShoot.multiplierTimer = 4.0f;
                 AudioSource.PlayClipAtPoint(laserImpactSound,
                     new Vector2(0, 0));

@@ -52,10 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de55a6334fb4ca843851235329e00556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioData: {fileID: 0}
   ShipLaser: {fileID: 4323674457895942769, guid: 27ad8272f71368146aa23cd14d6d0b79,
     type: 3}
   shootDelayTime: 0.5
-  audioData: {fileID: 0}
 --- !u!114 &-7501108423192640079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,7 +68,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfa0c2f90db043f19441a407437ee00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHealth: 10
   healthBarSpriteArray:
   - {fileID: 2962546571983907078, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: 3580199500849045680, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
@@ -81,6 +80,9 @@ MonoBehaviour:
   - {fileID: -2484030861835244207, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: -6905963577513531043, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: 5972140380756631857, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
+  shipHealth: 10
+  healthBar: {fileID: 3506051448698809922, guid: 8324ea70b7df84c05889355f61283c40,
+    type: 3}
 --- !u!114 &1366944655
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 5
+  level1Enemy: {fileID: 6883823292704736388}
 --- !u!114 &-1464612142377828635
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6306010933577292062}
   - component: {fileID: 7497359196338328427}
   - component: {fileID: -7208482569593660331}
-  - component: {fileID: 7214393211593546009}
   - component: {fileID: 392523433057232236}
+  - component: {fileID: -4547302134796658424}
   m_Layer: 0
   m_Name: HealthPack
   m_TagString: HealthPack
@@ -105,18 +105,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7214393211593546009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6221287883558905642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aec3bd8e9924010478f7ef598fd45da3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &392523433057232236
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +131,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &-4547302134796658424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6221287883558905642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 933df708f3de93d4f8dc392a6f8349b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -7,13 +7,15 @@ public class Multiplier : MonoBehaviour
     [SerializeField] private Sprite[] multiplierSpriteArray;
 
     private SpriteRenderer spriteRenderer;
+    public GameObject multiplierIcon;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        transform.position = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 1));
+
     }
 
-    // Update is called once per frame
     private void Update()
     {
         switch (ShipShoot.multiplier)

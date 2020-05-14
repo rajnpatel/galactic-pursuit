@@ -20,7 +20,7 @@ public class Asteroid : MonoBehaviour
     public GameObject ShieldPowerUp;
     private readonly float shieldPowerUpChance = 0.5f;
     public float velY = -3f;
-    
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,8 +40,8 @@ public class Asteroid : MonoBehaviour
     {
         if (col.gameObject.CompareTag("ShipBullet"))
         {
-            var shipHealth =
-                GameObject.Find("Ship").GetComponent<Ship>().shipHealth;
+            // var shipHealth =
+            //     GameObject.Find("Ship").GetComponent<Ship>().shipHealth;
             asteroidHealth -= 1;
             audioSources[0].PlayOneShot(laserImpactSound);
 

@@ -3,9 +3,6 @@
 public class EnemyMovement : MonoBehaviour
 {
     private const float movementSpeed = 1f;
-
-    private Vector2 currentPos;
-
     public int enemyHealth = 5;
 
     private Vector2 position;
@@ -21,15 +18,12 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         position = transform.position;
-        target.y = transform.position.y - 6;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .8f, 1))).y;
     }
 
     private void Update()
     {
-        position.y =
-            Mathf.MoveTowards(transform.position.y,
-                target.y,
-                Time.deltaTime * speed);
+        position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
         transform.position = position;
     }
 

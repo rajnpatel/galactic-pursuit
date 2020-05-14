@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6617617259265627901}
   - component: {fileID: 4866421893960150514}
   - component: {fileID: 8428593727230377130}
-  - component: {fileID: -5405950840906997944}
+  - component: {fileID: -4394943830940811404}
   m_Layer: 0
   m_Name: LaserPowerUp
   m_TagString: BulletsPowerUp
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.66, y: 0.66}
   m_EdgeRadius: 0
---- !u!114 &-5405950840906997944
+--- !u!114 &-4394943830940811404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 935948922621535302}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b46974e62f3d2704496356c6c02cf26a, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fea94c783b5a9946aabea871617b8ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

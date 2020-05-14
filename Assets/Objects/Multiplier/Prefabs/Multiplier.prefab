@@ -50,6 +50,7 @@ MonoBehaviour:
   - {fileID: 7530321975346614715, guid: 8fcd147ef8de741f68ff8e63539cf064, type: 3}
   - {fileID: 6245911788637625785, guid: 8fcd147ef8de741f68ff8e63539cf064, type: 3}
   - {fileID: -1828788568713274883, guid: 8fcd147ef8de741f68ff8e63539cf064, type: 3}
+  multiplierIcon: {fileID: 9191390703977384804}
 --- !u!212 &4536995678732674137
 SpriteRenderer:
   m_ObjectHideFlags: 0
