@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4879888930511276492}
   - component: {fileID: 1829553610500627207}
-  - component: {fileID: 4495572572555102330}
   - component: {fileID: -5907938261013439616}
   - component: {fileID: 3115492745216372706}
   - component: {fileID: 3220230093937151210}
@@ -85,18 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4495572572555102330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578401181782146303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7be5f68fb3946f3b1c19c921ee2baa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &-5907938261013439616
 Rigidbody2D:
   serializedVersion: 4

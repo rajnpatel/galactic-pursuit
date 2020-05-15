@@ -979,7 +979,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 297bb58bac4cae74998b921b72523465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level1Enemy: {fileID: 6883823292704736388, guid: f8a5cd7378ed4564d832c8acc7ddec71,
+  level1EnemyRow1: {fileID: 6883823292704736388, guid: f8a5cd7378ed4564d832c8acc7ddec71,
+    type: 3}
+  level1EnemyRow2: {fileID: 4226855442906009500, guid: 5990ee00d9c0fc84b9dca7009704069a,
+    type: 3}
+  level1EnemyRow3: {fileID: 4932806002715344232, guid: 088e76e33bcd5b1408a8617b10afabb5,
+    type: 3}
+  level1EnemyRow4: {fileID: 3335601755974108911, guid: 82fda44025c30414bb39cb0659b5db60,
     type: 3}
   canInstantiate: 1
 --- !u!114 &911372812
