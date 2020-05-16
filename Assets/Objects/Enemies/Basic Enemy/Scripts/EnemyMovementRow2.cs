@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemyMovementRow2 : MonoBehaviour
 {
@@ -23,7 +25,10 @@ public class EnemyMovementRow2 : MonoBehaviour
 
     private void Update()
     {
-        position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
-        transform.position = position;
+        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .7f, 1))).y)
+        {
+            position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
+            transform.position = position;
+        }
     }
 }

@@ -6,11 +6,10 @@ public class Level1EnemyWaves : MonoBehaviour
 {
     public GameObject level1EnemyRow1;
     public GameObject level1EnemyRow2;
-
+    public GameObject level1EnemyRow2Outer;
+    public GameObject level1EnemyRow3Outer;
     public GameObject level1EnemyRow3;
-
     public GameObject level1EnemyRow4;
-
     public bool canInstantiate = true;
 
     void Start()
@@ -67,16 +66,16 @@ public class Level1EnemyWaves : MonoBehaviour
         Instantiate(level1EnemyRow1, spawnPosition3, transform.rotation);
         Instantiate(level1EnemyRow1, spawnPosition4, transform.rotation);
         Instantiate(level1EnemyRow1, spawnPosition5, transform.rotation);
-        Instantiate(level1EnemyRow2, spawnPosition6, transform.rotation);
+        Instantiate(level1EnemyRow2Outer, spawnPosition6, transform.rotation);
         Instantiate(level1EnemyRow2, spawnPosition7, transform.rotation);
         Instantiate(level1EnemyRow2, spawnPosition8, transform.rotation);
         Instantiate(level1EnemyRow2, spawnPosition9, transform.rotation);
-        Instantiate(level1EnemyRow2, spawnPosition10, transform.rotation);
-        Instantiate(level1EnemyRow3, spawnPosition11, transform.rotation);
+        Instantiate(level1EnemyRow2Outer, spawnPosition10, transform.rotation);
+        Instantiate(level1EnemyRow3Outer, spawnPosition11, transform.rotation);
         Instantiate(level1EnemyRow3, spawnPosition12, transform.rotation);
         Instantiate(level1EnemyRow3, spawnPosition13, transform.rotation);
         Instantiate(level1EnemyRow3, spawnPosition14, transform.rotation);
-        Instantiate(level1EnemyRow3, spawnPosition15, transform.rotation);
+        Instantiate(level1EnemyRow3Outer, spawnPosition15, transform.rotation);
         Instantiate(level1EnemyRow4, spawnPosition16, transform.rotation);
         Instantiate(level1EnemyRow4, spawnPosition17, transform.rotation);
         Instantiate(level1EnemyRow4, spawnPosition18, transform.rotation);

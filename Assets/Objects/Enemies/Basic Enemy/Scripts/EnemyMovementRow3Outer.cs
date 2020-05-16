@@ -2,16 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementRow1 : MonoBehaviour
+public class EnemyMovementRow3Outer : MonoBehaviour
 {
-    //private const float movementSpeed = 1f;
+    private const float movementSpeed = 1f;
     public int enemyHealth = 5;
+
     private Vector2 position;
 
     //private Direction shipDirection;
+
     private readonly float speed = 7f;
     private float rotationSpeed = 3f;
     private Vector3 startPosition;
+
     private Vector2 target;
     private Vector2 bottomLeftCorner;
     private Vector2 topLeftCorner;
@@ -22,7 +25,7 @@ public class EnemyMovementRow1 : MonoBehaviour
     private void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
@@ -31,7 +34,7 @@ public class EnemyMovementRow1 : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y && settingPosition == true)
+        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y && settingPosition == true)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
@@ -63,49 +66,7 @@ public class EnemyMovementRow1 : MonoBehaviour
     }
     public IEnumerator delayRotation()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1.0f);
         settingPosition = false;
     }
 }
-
-/* private enum Direction
- {
-     Left,
-     Right,
-     Up,
-     Down
- }
-
-  private void Update()
-  {
-      switch (shipDirection)
-      {
-          case Direction.Left:
-              {
-                  transform.position = transform.position + new Vector3(2 * movementSpeed * Time.deltaTime, 0);
-                  if (transform.position.x > startPosition.x + 1)
-                  {
-                      shipDirection = Direction.Right;
-                  }
-
-                  break;
-              }
-          case Direction.Right:
-              {
-                  transform.position = transform.position - new Vector3(2 * movementSpeed * Time.deltaTime, 0);
-                  if (transform.position.x < startPosition.x - 1)
-                  {
-                      shipDirection = Direction.Left;
-                  }
-
-                  break;
-              }
-          case Direction.Up:
-              break;
-          case Direction.Down:
-              break;
-          default:
-              throw new ArgumentOutOfRangeException();
-      }
-  }
-}*/

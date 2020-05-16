@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 6534315269081075684}
   - component: {fileID: 7948418715913038737}
   - component: {fileID: 6136664643765257733}
-  - component: {fileID: 7163124287305249929}
+  - component: {fileID: -8587564533452369106}
   m_Layer: 0
   m_Name: BasicEnemyRow3
   m_TagString: BasicEnemy
@@ -375,7 +375,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7163124287305249929
+--- !u!114 &-8587564533452369106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

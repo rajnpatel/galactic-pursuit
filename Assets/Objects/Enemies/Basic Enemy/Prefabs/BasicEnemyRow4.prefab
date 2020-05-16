@@ -388,3 +388,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 5
+  settingPosition: 1
