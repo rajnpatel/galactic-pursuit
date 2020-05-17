@@ -23,7 +23,6 @@ public class Shield : MonoBehaviour
             Instantiate(shield, ShipObject.position, transform.rotation);
         }
         transform.position = ShipObject.position;
-
     }
     private void OnCollisionEnter2D(Collision2D col)
     {

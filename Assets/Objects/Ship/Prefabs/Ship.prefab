@@ -81,8 +81,6 @@ MonoBehaviour:
   - {fileID: -6905963577513531043, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: 5972140380756631857, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   shipHealth: 10
-  healthBar: {fileID: 3506051448698809922, guid: 8324ea70b7df84c05889355f61283c40,
-    type: 3}
 --- !u!114 &1366944655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,7 +485,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00007811561, y: 0.25}
+  m_Offset: {x: -0.00007811189, y: 0.015730858}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -498,5 +496,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.08398318}
+  m_Size: {x: 0.25, y: 0.2939868}
   m_EdgeRadius: 0

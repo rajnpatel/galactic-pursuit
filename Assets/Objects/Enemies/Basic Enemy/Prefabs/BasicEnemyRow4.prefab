@@ -52,6 +52,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 5
+  explosion0: {fileID: 21300000, guid: 638eac66df8534545b46499555e924a1, type: 3}
+  explosion1: {fileID: 21300000, guid: c77186f78c896c448b592279621b2d80, type: 3}
+  explosion2: {fileID: 21300000, guid: 8d7bffb062369fb4bba5399e19444a93, type: 3}
+  explosion3: {fileID: 21300000, guid: 37060e226f1822545abeef809d14c176, type: 3}
+  explosion4: {fileID: 21300000, guid: 1fea32ef93bf7ba4abc25861bdaa46cf, type: 3}
+  explosion5: {fileID: 21300000, guid: d99ef37166cde814bbe229b9633765aa, type: 3}
+  explosion6: {fileID: 21300000, guid: 30e3dc818b55bf9468ddc19c3f6e18d0, type: 3}
+  explosion7: {fileID: 21300000, guid: 02a2d6ea2173f49499c5f26ca8ebe330, type: 3}
+  explosion8: {fileID: 21300000, guid: e533f8c0f60352844976ed3e849c8d5a, type: 3}
+  explosion9: {fileID: 21300000, guid: e9af2850a28b0aa44aff1a552e9f2cd5, type: 3}
+  explosion10: {fileID: 21300000, guid: 1f962424b844a914d977d2d161658c51, type: 3}
+  explosion11: {fileID: 21300000, guid: 394755e18f9fd064e977d1160f691c99, type: 3}
+  enemyExplosion: {fileID: 3357265873869856190, guid: 51755bd2d3c053a41911dcc2d6ba3e10,
+    type: 3}
 --- !u!114 &1904626594666790030
 MonoBehaviour:
   m_ObjectHideFlags: 0
