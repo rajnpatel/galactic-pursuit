@@ -16,7 +16,7 @@ public class ShipShoot : MonoBehaviour
     public AudioSource audioData;
     public GameObject ShipLaser;
 
-    public float shootDelayTime = 0.50f / multiplier;
+    private float shootDelayTime = 0.50f / multiplier;
 
     private void Start()
     {

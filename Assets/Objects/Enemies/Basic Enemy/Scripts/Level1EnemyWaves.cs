@@ -84,7 +84,7 @@ public class Level1EnemyWaves : MonoBehaviour
     }
     public IEnumerator instantiateEnemiesWave2()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(1.0f);
 
         float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
         float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;

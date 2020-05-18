@@ -10,7 +10,6 @@ public class SceneTransitions : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButton(0)) StartCoroutine(LoadScene());
-        Debug.Log(ShipShoot.multiplier);
     }
 
     private IEnumerator LoadScene()
@@ -18,6 +17,7 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
+        ShipShoot.canShoot = true;
         ShipShoot.multiplier = 1.0f;
         EnemyHurt.level1Enemies = 20;
     }
