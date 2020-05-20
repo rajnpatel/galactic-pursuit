@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public int shieldHealth = 5;
+    public static int shieldHealth = 5;
     public GameObject shield;
     public static bool shieldCanAppear = false;
     Rigidbody2D rb;

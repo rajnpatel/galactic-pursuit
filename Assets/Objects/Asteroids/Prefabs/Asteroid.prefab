@@ -52,6 +52,8 @@ MonoBehaviour:
     type: 3}
   HealthPowerUp: {fileID: 6221287883558905642, guid: 54682a31cbab6fc47adcb3d231ffe137,
     type: 3}
+  FirePowerUp: {fileID: 1896973102731561129, guid: 191a58f9e4e8cde499e8b81a90a81b2d,
+    type: 3}
   ShieldPowerUp: {fileID: 6124883196321756452, guid: 731212b4605504083980acf4f170483a,
     type: 3}
   velY: -3

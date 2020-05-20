@@ -55,7 +55,8 @@ MonoBehaviour:
   audioData: {fileID: 0}
   ShipLaser: {fileID: 4323674457895942769, guid: 27ad8272f71368146aa23cd14d6d0b79,
     type: 3}
-  shootDelayTime: 10
+  FireBeam: {fileID: 5212862763143328713, guid: bd4c90c89fb9cbc44a162d3aea857df4,
+    type: 3}
 --- !u!114 &-7501108423192640079
 MonoBehaviour:
   m_ObjectHideFlags: 0

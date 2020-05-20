@@ -17,8 +17,10 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
+        ShipMovement.movementDisabled = false;
         ShipShoot.canShoot = true;
+        Ship.shield = false;
         ShipShoot.multiplier = 1.0f;
-        EnemyHurt.level1Enemies = 20;
+        EnemyHurt.level1Enemies = 52;
     }
 }

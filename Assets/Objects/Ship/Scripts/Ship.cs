@@ -8,7 +8,6 @@ public class Ship : MonoBehaviour
     private Animator animator;
     private AudioSource[] audioSources;
     private BoxCollider2D boxCollider2D;
-    private bool canDamage = true;
     [SerializeField] private Sprite[] healthBarSpriteArray;
     private AudioClip shipDeath;
     [SerializeField] public int shipHealth = 10;
@@ -79,7 +78,8 @@ public class Ship : MonoBehaviour
                 spriteRenderer.sprite = healthBarSpriteArray[0];
                 animator.SetTrigger("Explode");
                 boxCollider2D.size = new Vector2(0, 0);
-                ShipShoot.shootDisabled = true;
+                ShipShoot.canShoot = false;
+                ShipShoot.canFire = false;
                 ShipMovement.movementDisabled = true;
                 AudioSource.PlayClipAtPoint(shipDeath, new Vector2(0, 0));
                 StartCoroutine(GameOver());

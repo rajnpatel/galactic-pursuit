@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class ShipBullet : MonoBehaviour
+public class ShipLaser : MonoBehaviour
 {
     private const float velX = 0;
 
     private Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 30f;
 
     private void Start()
     {
@@ -19,7 +19,8 @@ public class ShipBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("BasicEnemy") || col.gameObject.CompareTag("Asteroid")) Destroy(gameObject);
+        if (col.gameObject.CompareTag("BasicEnemy")
+        || col.gameObject.CompareTag("Asteroid")) Destroy(gameObject);
     }
 
     private void OnBecameInvisible()
