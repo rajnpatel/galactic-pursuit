@@ -19,7 +19,9 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         ShipMovement.movementDisabled = false;
         ShipShoot.canShoot = true;
+        ShipShoot.canFire = false;
         ShipShoot.weapon1 = true;
+        ShipShoot.weapon2 = false;
         Ship.shield = false;
         ShipShoot.multiplier = 1.0f;
         EnemyHurt.level1Enemies = 52;

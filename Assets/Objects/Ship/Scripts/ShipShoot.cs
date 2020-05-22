@@ -78,7 +78,7 @@ public class ShipShoot : MonoBehaviour
     private IEnumerator NoFire()
     {
         yield return new WaitForSeconds(.15f);
-        Instantiate(FireBeam, new Vector3(transform.position.x - 0.1f, transform.position.y + 1.0f), Quaternion.Euler(0, 0, 92));
+        Instantiate(FireBeam, new Vector3(transform.position.x - 0.06f, transform.position.y + 0.8f), Quaternion.Euler(0, 0, 92));
         canFire = true;
     }
 }
