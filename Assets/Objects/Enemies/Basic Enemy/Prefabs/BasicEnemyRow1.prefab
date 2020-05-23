@@ -69,6 +69,8 @@ MonoBehaviour:
   enemyHealth: 5
   enemyExplosion: {fileID: 3357265873869856190, guid: 51755bd2d3c053a41911dcc2d6ba3e10,
     type: 3}
+  enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
+    type: 3}
 --- !u!114 &-1464612142377828635
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class EnemyHurt : MonoBehaviour
     private AudioClip laserImpactSound;
     private AudioClip fireImpactSound;
     public GameObject enemyExplosion;
+    public GameObject enemyFire;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class EnemyHurt : MonoBehaviour
             enemyHealth -= 2;
             animator.SetTrigger("Damaged");
             audioSources[2].PlayOneShot(fireImpactSound);
+            Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
             if (enemyHealth <= 0)
             {
                 Destroy(gameObject);

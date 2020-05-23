@@ -9,7 +9,7 @@ public class Asteroid : MonoBehaviour
     public GameObject LaserPowerUp;
     private bool canAppear = true;
     private AudioClip explosionSound;
-    int asteroidHealth = 5;
+    int asteroidHealth = 8;
     public GameObject HealthPowerUp;
     public GameObject FirePowerUp;
     private AudioClip laserImpactSound;
@@ -21,7 +21,7 @@ public class Asteroid : MonoBehaviour
     float firePowerUpChance = 3;
     public GameObject ShieldPowerUp;
     public float velY = -3f;
-
+    public GameObject fireResidual;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +46,7 @@ public class Asteroid : MonoBehaviour
         }
         if (col.gameObject.CompareTag("FireProjectile"))
         {
+            Instantiate(fireResidual, new Vector3(transform.position.x - 0.1f, transform.position.y - 0.2f), transform.rotation);
             asteroidHealth -= 2;
             audioSources[0].PlayOneShot(laserImpactSound);
         }

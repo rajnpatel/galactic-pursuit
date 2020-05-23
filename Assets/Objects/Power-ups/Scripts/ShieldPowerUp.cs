@@ -29,11 +29,14 @@ public class ShieldPowerUp : MonoBehaviour
                 Shield.shieldHealth = 5;
                 Destroy(gameObject);
             }
-            else
+            else if (col.gameObject.CompareTag("Ship"))
             {
-                Shield.shieldCanAppear = true;
-                Ship.shield = true;
-                Destroy(gameObject);
+                if (Ship.shield == false)
+                {
+                    Ship.shield = true;
+                    Shield.shieldCanAppear = true;
+                    Destroy(gameObject);
+                }
             }
         }
     }

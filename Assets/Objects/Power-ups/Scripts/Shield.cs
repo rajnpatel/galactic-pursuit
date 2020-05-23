@@ -9,7 +9,6 @@ public class Shield : MonoBehaviour
     public static bool shieldCanAppear = false;
     Rigidbody2D rb;
     Transform ShipObject;
-    Transform ShieldPowerUp;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -39,7 +38,11 @@ public class Shield : MonoBehaviour
         if (shieldHealth == 0)
         {
             Ship.shield = false;
-            Destroy(gameObject);
+            if (Ship.shield == false)
+            {
+                shieldHealth = 5;
+                Destroy(gameObject);
+            }
         }
     }
 }
