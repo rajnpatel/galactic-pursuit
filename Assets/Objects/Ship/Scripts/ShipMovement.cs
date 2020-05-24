@@ -20,6 +20,8 @@ public class ShipMovement : MonoBehaviour
     private readonly float speed = 15f;
 
     private Vector2 target;
+    public GameObject MovingLeftWind;
+    public GameObject MovingRightWind;
 
     private void Start()
     {
@@ -62,6 +64,7 @@ public class ShipMovement : MonoBehaviour
                 !locked && columnPosition != 0
             )
             {
+                Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
                 target.x = transform.position.x - movementDistance;
                 locked = true;
                 columnPosition--;
@@ -85,6 +88,7 @@ public class ShipMovement : MonoBehaviour
             canDoAction = false;
             if (!locked && columnPosition != 4)
             {
+                Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
                 target.x = transform.position.x + movementDistance;
                 locked = true;
                 columnPosition++;

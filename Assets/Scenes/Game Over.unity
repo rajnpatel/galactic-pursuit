@@ -225,8 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604d0358bc1c450ab3675ab82041a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: Main Menu
   transitionAnim: {fileID: 411645994}
-  sceneName: Level 1
 --- !u!4 &522212566
 Transform:
   m_ObjectHideFlags: 0

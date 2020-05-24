@@ -55,7 +55,8 @@ MonoBehaviour:
   audioData: {fileID: 0}
   ShipLaser: {fileID: 4323674457895942769, guid: 27ad8272f71368146aa23cd14d6d0b79,
     type: 3}
-  shootDelayTime: 0.5
+  FireBeam: {fileID: 5212862763143328713, guid: bd4c90c89fb9cbc44a162d3aea857df4,
+    type: 3}
 --- !u!114 &-7501108423192640079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +82,6 @@ MonoBehaviour:
   - {fileID: -6905963577513531043, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: 5972140380756631857, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   shipHealth: 10
-  healthBar: {fileID: 3506051448698809922, guid: 8324ea70b7df84c05889355f61283c40,
-    type: 3}
 --- !u!114 &1366944655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d7be5f68fb3946f3b1c19c921ee2baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MovingLeftWind: {fileID: 7481278926634827670, guid: 64e17ee3ffba0674c8973b189b2d7d73,
+    type: 3}
+  MovingRightWind: {fileID: 5668439906340930519, guid: 593305307f485cc48a2b5bdc5e931c54,
+    type: 3}
 --- !u!212 &6857071572901219992
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -487,7 +490,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00007811561, y: 0.25}
+  m_Offset: {x: -0.00007811189, y: 0.114864945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -498,5 +501,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.08398318}
+  m_Size: {x: 0.25, y: 0.49225497}
   m_EdgeRadius: 0

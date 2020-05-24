@@ -9,18 +9,19 @@ public class Asteroid : MonoBehaviour
     public GameObject LaserPowerUp;
     private bool canAppear = true;
     private AudioClip explosionSound;
-    int asteroidHealth = 5;
+    int asteroidHealth = 10;
     public GameObject HealthPowerUp;
+    public GameObject FirePowerUp;
     private AudioClip laserImpactSound;
-    private readonly float powerUpDelay = 1.0f;
+    private readonly float powerUpDelay = .01f;
     private float RandomNum;
     private Rigidbody2D rb;
     float bulletsPowerUpChance = 1;
     float healthPowerUpChance = 2;
+    float firePowerUpChance = 3;
     public GameObject ShieldPowerUp;
-    private readonly float shieldPowerUpChance = 0.5f;
     public float velY = -3f;
-
+    public GameObject fireResidual;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -40,46 +41,58 @@ public class Asteroid : MonoBehaviour
     {
         if (col.gameObject.CompareTag("ShipBullet"))
         {
-            // var shipHealth =
-            //     GameObject.Find("Ship").GetComponent<Ship>().shipHealth;
             asteroidHealth -= 1;
             audioSources[0].PlayOneShot(laserImpactSound);
-
-            if (asteroidHealth == 0)
-            {
-                AudioSource.PlayClipAtPoint(laserImpactSound,
-                    new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
-
-                Destroy(gameObject);
-                if (Random.Range(1, 3) == bulletsPowerUpChance && canAppear)
-                {
-                    Instantiate(LaserPowerUp,
-                        transform.position,
-                        transform.rotation);
-                    canAppear = false;
-                    StartCoroutine(NoAppear());
-                }
-                else if (Random.Range(1, 3) == healthPowerUpChance && canAppear)
-                {
-                    Instantiate(HealthPowerUp,
-                        transform.position,
-                        transform.rotation);
-                    canAppear = false;
-                    StartCoroutine(NoAppear());
-                }
-                else
-                {
-                    Instantiate(ShieldPowerUp,
-                    transform.position,
-                    transform.rotation);
-                    canAppear = false;
-                    StartCoroutine(NoAppear());
-                }
-            }
+        }
+        if (col.gameObject.CompareTag("FireProjectile"))
+        {
+            Instantiate(fireResidual, new Vector3(transform.position.x - 0.1f, transform.position.y), transform.rotation);
+            asteroidHealth -= 2;
+            audioSources[0].PlayOneShot(laserImpactSound);
         }
 
+        if (asteroidHealth <= 0)
+        {
+            AudioSource.PlayClipAtPoint(laserImpactSound,
+                new Vector2(0, 0));
+            AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+            Destroy(gameObject);
+
+            if (Random.Range(1, 4) == bulletsPowerUpChance && canAppear)
+            {
+                Instantiate(LaserPowerUp,
+                    transform.position,
+                    transform.rotation);
+                canAppear = false;
+                StartCoroutine(NoAppear());
+            }
+            else if (Random.Range(1, 4) == healthPowerUpChance && canAppear)
+            {
+                Instantiate(HealthPowerUp,
+                    transform.position,
+                    transform.rotation);
+                canAppear = false;
+                StartCoroutine(NoAppear());
+            }
+            else if (Random.Range(1, 4) == firePowerUpChance && canAppear)
+            {
+                Instantiate(FirePowerUp,
+                    transform.position,
+                    transform.rotation);
+                canAppear = false;
+                StartCoroutine(NoAppear());
+            }
+            else
+            {
+                Instantiate(ShieldPowerUp,
+                transform.position,
+                transform.rotation);
+                canAppear = false;
+                StartCoroutine(NoAppear());
+            }
+        }
         if (col.gameObject.CompareTag("Ship") || col.gameObject.CompareTag("Shield")) Destroy(gameObject);
+
     }
 
     private IEnumerator NoAppear()

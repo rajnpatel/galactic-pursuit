@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public int shieldHealth = 5;
+    public static int shieldHealth = 5;
     public GameObject shield;
     public static bool shieldCanAppear = false;
     Rigidbody2D rb;
     Transform ShipObject;
-    Transform ShieldPowerUp;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +22,6 @@ public class Shield : MonoBehaviour
             Instantiate(shield, ShipObject.position, transform.rotation);
         }
         transform.position = ShipObject.position;
-
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
