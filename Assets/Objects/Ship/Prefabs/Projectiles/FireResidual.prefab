@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6447135011728279646}
   - component: {fileID: 6447135011728279647}
   - component: {fileID: 3481799918217736639}
+  - component: {fileID: -5336484883703465519}
   m_Layer: 0
-  m_Name: FireOnEnemy
+  m_Name: FireResidual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,3 +115,29 @@ MonoBehaviour:
   fire18: {fileID: 21300000, guid: c2f013a1233e8054fb2933e046f2d4f1, type: 3}
   fire19: {fileID: 21300000, guid: c3e1a60bba3de8d4d9e4a6044fdd1b18, type: 3}
   fire20: {fileID: 21300000, guid: dbfe6514ece533940880c0cf99aa8996, type: 3}
+--- !u!61 &-5336484883703465519
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6447135011728279640}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.056019753, y: 0.027778387}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21572292, y: 0.274894}
+  m_EdgeRadius: 0

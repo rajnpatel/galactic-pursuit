@@ -9,7 +9,7 @@ public class Asteroid : MonoBehaviour
     public GameObject LaserPowerUp;
     private bool canAppear = true;
     private AudioClip explosionSound;
-    int asteroidHealth = 8;
+    int asteroidHealth = 10;
     public GameObject HealthPowerUp;
     public GameObject FirePowerUp;
     private AudioClip laserImpactSound;
@@ -46,7 +46,7 @@ public class Asteroid : MonoBehaviour
         }
         if (col.gameObject.CompareTag("FireProjectile"))
         {
-            Instantiate(fireResidual, new Vector3(transform.position.x - 0.1f, transform.position.y - 0.2f), transform.rotation);
+            Instantiate(fireResidual, new Vector3(transform.position.x - 0.1f, transform.position.y), transform.rotation);
             asteroidHealth -= 2;
             audioSources[0].PlayOneShot(laserImpactSound);
         }
@@ -56,8 +56,8 @@ public class Asteroid : MonoBehaviour
             AudioSource.PlayClipAtPoint(laserImpactSound,
                 new Vector2(0, 0));
             AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
-
             Destroy(gameObject);
+
             if (Random.Range(1, 4) == bulletsPowerUpChance && canAppear)
             {
                 Instantiate(LaserPowerUp,

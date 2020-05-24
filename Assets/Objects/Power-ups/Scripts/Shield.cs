@@ -38,11 +38,7 @@ public class Shield : MonoBehaviour
         if (shieldHealth == 0)
         {
             Ship.shield = false;
-            if (Ship.shield == false)
-            {
-                shieldHealth = 5;
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

@@ -78,8 +78,8 @@ public class Ship : MonoBehaviour
                 spriteRenderer.sprite = healthBarSpriteArray[0];
                 animator.SetTrigger("Explode");
                 boxCollider2D.size = new Vector2(0, 0);
-                ShipShoot.canShoot = false;
-                ShipShoot.canFire = false;
+                ShipShoot.weapon1 = false;
+                ShipShoot.weapon2 = false;
                 ShipMovement.movementDisabled = true;
                 AudioSource.PlayClipAtPoint(shipDeath, new Vector2(0, 0));
                 StartCoroutine(GameOver());

@@ -33,6 +33,7 @@ public class ShieldPowerUp : MonoBehaviour
             {
                 if (Ship.shield == false)
                 {
+                    Shield.shieldHealth = 5;
                     Ship.shield = true;
                     Shield.shieldCanAppear = true;
                     Destroy(gameObject);

@@ -43,19 +43,19 @@ public class EnemyHurt : MonoBehaviour
         }
         if (col.gameObject.CompareTag("FireProjectile"))
         {
-            enemyHealth -= 2;
             animator.SetTrigger("Damaged");
             audioSources[2].PlayOneShot(fireImpactSound);
             Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
+            enemyHealth -= 2;
             if (enemyHealth <= 0)
             {
-                Destroy(gameObject);
                 level1Enemies--;
                 ShipShoot.multiplierTimer = 4.0f;
                 AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 if (ShipShoot.multiplier < ShipShoot.maxMultiplier) ShipShoot.multiplier++;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
             }
         }
     }
