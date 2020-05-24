@@ -24,30 +24,22 @@ public class FireResidual : MonoBehaviour
     public Sprite fire18;
     public Sprite fire19;
     public Sprite fire20;
-    // The 2 booleans below are needed as without it the fire residual effect will sometimes
-    // cause all of the code to occur twice, i.e., instantation of the fire residual effect,
-    // the explosion of the enemy, the explosion audio, and even the level1Enemies decrementing.
-    public static bool canFollowEnemy = true;
-    public static bool canFollowAsteroid = true;
-
+    private Rigidbody2D rb;
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         StartCoroutine(FireAnimation());
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Asteroid") && canFollowAsteroid)
+        if (col.gameObject.CompareTag("Asteroid"))
         {
-            canFollowAsteroid = false;
             transform.SetParent(col.gameObject.transform, true);
-            StartCoroutine(canFollowAsteroidDelay());
         }
-        if (col.gameObject.CompareTag("BasicEnemy") && canFollowEnemy)
+        if (col.gameObject.CompareTag("BasicEnemy"))
         {
-            canFollowEnemy = false;
             transform.SetParent(col.gameObject.transform, true);
-            StartCoroutine(canFollowEnemyDelay());
         }
     }
 
@@ -95,15 +87,5 @@ public class FireResidual : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = fire20;
         yield return new WaitForSeconds(0.01f);
         Destroy(gameObject);
-    }
-    public IEnumerator canFollowEnemyDelay()
-    {
-        yield return new WaitForSeconds(0.01f);
-        canFollowEnemy = true;
-    }
-    public IEnumerator canFollowAsteroidDelay()
-    {
-        yield return new WaitForSeconds(0.01f);
-        canFollowAsteroid = true;
     }
 }
