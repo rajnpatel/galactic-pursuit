@@ -57,6 +57,10 @@ MonoBehaviour:
     type: 3}
   FireBeam: {fileID: 5212862763143328713, guid: bd4c90c89fb9cbc44a162d3aea857df4,
     type: 3}
+  PoweredLaser: {fileID: 4007792991189766704, guid: 4216753a2013792489168375c898be86,
+    type: 3}
+  PoweredLaserMuzzle: {fileID: 2471688815610259378, guid: e249ea3ab838d2c45b1db558aa12a972,
+    type: 3}
 --- !u!114 &-7501108423192640079
 MonoBehaviour:
   m_ObjectHideFlags: 0

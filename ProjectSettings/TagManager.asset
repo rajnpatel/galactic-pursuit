@@ -10,7 +10,6 @@ TagManager:
   - RedEnemyHurt
   - ShipBullet
   - HealthBar
-  - BulletsPowerUp
   - Asteroid
   - HealthPack
   - Settings
@@ -22,6 +21,8 @@ TagManager:
   - Shield
   - FirePowerUp
   - FireProjectile
+  - PoweredLaser
+  - LaserPowerUp
   layers:
   - Default
   - TransparentFX
