@@ -11,6 +11,7 @@ public class EnemyHurt : MonoBehaviour
     private AudioClip explosionSound;
     private AudioClip laserImpactSound;
     private AudioClip fireImpactSound;
+    private AudioClip poweredLaserImpactSound;
     public GameObject enemyExplosion;
     public GameObject enemyFire;
 
@@ -21,6 +22,7 @@ public class EnemyHurt : MonoBehaviour
         laserImpactSound = audioSources[0].clip;
         explosionSound = audioSources[1].clip;
         fireImpactSound = audioSources[2].clip;
+        poweredLaserImpactSound = audioSources[3].clip;
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -34,26 +36,36 @@ public class EnemyHurt : MonoBehaviour
             {
                 Destroy(gameObject);
                 level1Enemies--;
-                ShipShoot.multiplierTimer = 4.0f;
                 AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
-                if (ShipShoot.multiplier < ShipShoot.maxMultiplier) ShipShoot.multiplier++;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
             }
         }
         if (col.gameObject.CompareTag("FireProjectile"))
         {
+            enemyHealth -= 2;
             animator.SetTrigger("Damaged");
             audioSources[2].PlayOneShot(fireImpactSound);
             Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
-            enemyHealth -= 2;
             if (enemyHealth <= 0)
             {
                 level1Enemies--;
-                ShipShoot.multiplierTimer = 4.0f;
                 AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
-                if (ShipShoot.multiplier < ShipShoot.maxMultiplier) ShipShoot.multiplier++;
+                Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+        if (col.gameObject.CompareTag("PoweredLaser"))
+        {
+            enemyHealth -= 1;
+            animator.SetTrigger("Damaged");
+            audioSources[3].PlayOneShot(poweredLaserImpactSound);
+            if (enemyHealth <= 0)
+            {
+                level1Enemies--;
+                AudioSource.PlayClipAtPoint(poweredLaserImpactSound, new Vector2(0, 0));
+                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }

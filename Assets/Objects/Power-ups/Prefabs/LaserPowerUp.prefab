@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -4394943830940811404}
   m_Layer: 0
   m_Name: LaserPowerUp
-  m_TagString: BulletsPowerUp
+  m_TagString: LaserPowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

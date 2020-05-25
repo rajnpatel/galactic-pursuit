@@ -22,8 +22,8 @@ public class SceneTransitions : MonoBehaviour
         ShipShoot.canFire = false;
         ShipShoot.weapon1 = true;
         ShipShoot.weapon2 = false;
+        ShipShoot.weapon3 = false;
         Ship.shield = false;
-        ShipShoot.multiplier = 1.0f;
         EnemyHurt.level1Enemies = 52;
     }
 }

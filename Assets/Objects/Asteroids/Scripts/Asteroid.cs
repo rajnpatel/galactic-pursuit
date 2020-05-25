@@ -6,20 +6,17 @@ public class Asteroid : MonoBehaviour
 {
     private const float velX = 0;
     private AudioSource[] audioSources;
-    public GameObject LaserPowerUp;
     private bool canAppear = true;
     private AudioClip explosionSound;
-    int asteroidHealth = 10;
+    int asteroidHealth = 7;
+    public GameObject LaserPowerUp;
     public GameObject HealthPowerUp;
     public GameObject FirePowerUp;
+    public GameObject ShieldPowerUp;
     private AudioClip laserImpactSound;
     private readonly float powerUpDelay = .01f;
     private float RandomNum;
     private Rigidbody2D rb;
-    float bulletsPowerUpChance = 1;
-    float healthPowerUpChance = 2;
-    float firePowerUpChance = 3;
-    public GameObject ShieldPowerUp;
     public float velY = -3f;
     public GameObject fireResidual;
     private void Start()
@@ -50,7 +47,11 @@ public class Asteroid : MonoBehaviour
             asteroidHealth -= 2;
             audioSources[0].PlayOneShot(laserImpactSound);
         }
-
+        if (col.gameObject.CompareTag("PoweredLaser"))
+        {
+            asteroidHealth -= 1;
+            audioSources[0].PlayOneShot(laserImpactSound);
+        }
         if (asteroidHealth <= 0)
         {
             AudioSource.PlayClipAtPoint(laserImpactSound,
@@ -58,7 +59,7 @@ public class Asteroid : MonoBehaviour
             AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
             Destroy(gameObject);
 
-            if (Random.Range(1, 4) == bulletsPowerUpChance && canAppear)
+            if (Random.Range(1, 4) == 1 && canAppear)
             {
                 Instantiate(LaserPowerUp,
                     transform.position,
@@ -66,7 +67,7 @@ public class Asteroid : MonoBehaviour
                 canAppear = false;
                 StartCoroutine(NoAppear());
             }
-            else if (Random.Range(1, 4) == healthPowerUpChance && canAppear)
+            else if (Random.Range(1, 4) == 2 && canAppear)
             {
                 Instantiate(HealthPowerUp,
                     transform.position,
@@ -74,7 +75,7 @@ public class Asteroid : MonoBehaviour
                 canAppear = false;
                 StartCoroutine(NoAppear());
             }
-            else if (Random.Range(1, 4) == firePowerUpChance && canAppear)
+            else if (Random.Range(1, 4) == 3 && canAppear)
             {
                 Instantiate(FirePowerUp,
                     transform.position,

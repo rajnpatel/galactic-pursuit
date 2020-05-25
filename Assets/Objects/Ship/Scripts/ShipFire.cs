@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShipFire : MonoBehaviour
 {
     private const float velX = 0;
-
     private Rigidbody2D rb;
     private float speed = 30f;
     public Sprite fire1;
