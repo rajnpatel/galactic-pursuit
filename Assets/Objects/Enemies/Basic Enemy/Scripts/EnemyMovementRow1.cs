@@ -36,7 +36,7 @@ public class EnemyMovementRow1 : MonoBehaviour
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
         }
-        if (EnemyHurt.level1Enemies <= 20)
+        if (EnemyHurt.level1Enemies <= 0)
         {
             if (position.y == target.y)
             {
