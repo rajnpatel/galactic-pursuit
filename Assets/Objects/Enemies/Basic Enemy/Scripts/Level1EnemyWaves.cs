@@ -12,6 +12,7 @@ public class Level1EnemyWaves : MonoBehaviour
     public GameObject level1EnemyRow4;
     public bool canInstantiateWave2 = true;
     public bool canInstantiateWave3 = true;
+    public bool canInstantiateWave4 = true;
 
     void Start()
     {
@@ -27,8 +28,13 @@ public class Level1EnemyWaves : MonoBehaviour
         }
         if (EnemyHurt.level1Enemies == 20 && canInstantiateWave3)
         {
-            StartCoroutine(instantiateEnemiesWave3());
+            StartCoroutine(instantiateEnemiesWave2());
             canInstantiateWave3 = false;
+        }
+        if (EnemyHurt.level1Enemies == 0 && canInstantiateWave4)
+        {
+            StartCoroutine(instantiateEnemiesWave3());
+            canInstantiateWave4 = false;
         }
     }
     public IEnumerator instantiateEnemiesWave1()
