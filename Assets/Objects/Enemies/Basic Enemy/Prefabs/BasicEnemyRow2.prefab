@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad965274b0077b41b4847760ac58034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyBullet: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
     type: 3}
 --- !u!212 &5731654873986667745
 SpriteRenderer:

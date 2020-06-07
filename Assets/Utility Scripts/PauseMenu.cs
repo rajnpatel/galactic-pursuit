@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused;
     public static bool muted;
     public GameObject pauseMenuUI;
+    public GameObject pauseMenuPreferencesUI;
+    public Text movementMethodText = null;
 
     private void Update()
     {
@@ -38,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        pauseMenuPreferencesUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -66,6 +69,31 @@ public class PauseMenu : MonoBehaviour
         {
             AudioListener.pause = false;
             muted = false;
+        }
+    }
+    public void Preferences()
+    {
+        pauseMenuUI.SetActive(false);
+        pauseMenuPreferencesUI.SetActive(true);
+    }
+    public void Back()
+    {
+        pauseMenuPreferencesUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+    public void movementMethod()
+    {
+        if (ShipMovement.swipeToMove == false)
+        {
+            ShipMovement.swipeToMove = true;
+            ShipMovement.taptoMove = false;
+            movementMethodText.text = "MOVEMENT METHOD: SWIPE TO MOVE";
+        }
+        else
+        {
+            ShipMovement.swipeToMove = false;
+            ShipMovement.taptoMove = true;
+            movementMethodText.text = "MOVEMENT METHOD: TAP TO MOVE";
         }
     }
 }

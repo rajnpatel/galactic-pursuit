@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1615461511634342275, guid: ca46c87e0010c274fb0fbfed3f13dfb0,
     type: 3}
+  pauseMenuPreferencesUI: {fileID: 0}
 --- !u!61 &-3910589054567784785
 BoxCollider2D:
   m_ObjectHideFlags: 0

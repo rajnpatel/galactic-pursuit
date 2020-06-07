@@ -4,7 +4,7 @@ public class ShipMovement : MonoBehaviour
 {
     public static bool movementDisabled = false;
     private bool canDoAction = true;
-    private int columnPosition = 2;
+    public static int columnPosition = 3;
     private bool locked;
     private bool moveLeft;
     private float movementDistance;
@@ -20,6 +20,8 @@ public class ShipMovement : MonoBehaviour
     public bool detectSwipeOnlyAfterRelease = false;
     private float SWIPE_THRESHOLD = 0f;
     public bool canMove = true;
+    public static bool swipeToMove = true;
+    public static bool taptoMove = false;
 
     private void Start()
     {
@@ -46,7 +48,7 @@ public class ShipMovement : MonoBehaviour
             }
 
             //Detects Swipe while finger is still moving
-            if (touch.phase == TouchPhase.Moved && canMove && PauseMenu.gameIsPaused == false)
+            if (touch.phase == TouchPhase.Moved && canMove && PauseMenu.gameIsPaused == false && swipeToMove)
             {
 
                 if (!detectSwipeOnlyAfterRelease)
@@ -83,7 +85,7 @@ public class ShipMovement : MonoBehaviour
         }
 
 
-        /*if (Input.touchCount > 0 && !movementDisabled)
+        if (Input.touchCount > 0 && !movementDisabled && taptoMove)
             switch (Input.GetTouch(0).phase)
             {
                 case TouchPhase.Began:
@@ -94,14 +96,14 @@ public class ShipMovement : MonoBehaviour
                              Input.GetTouch(0).position.y < Screen.height / 2 && PauseMenu.gameIsPaused == false)
                         moveRight = true;
                     break;
-            }*/
+            }
 
         if (moveLeft)
         {
             canDoAction = false;
 
             if (
-                !locked && columnPosition != 0
+                !locked && columnPosition != 1
             )
             {
                 Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
@@ -126,7 +128,7 @@ public class ShipMovement : MonoBehaviour
         if (moveRight)
         {
             canDoAction = false;
-            if (!locked && columnPosition != 4)
+            if (!locked && columnPosition != 5)
             {
                 Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
                 target.x = transform.position.x + movementDistance;
@@ -219,7 +221,7 @@ public class ShipMovement : MonoBehaviour
             canDoAction = false;
 
             if (
-                !locked && columnPosition != 0
+                !locked && columnPosition != 1
             )
             {
                 Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
@@ -249,7 +251,7 @@ public class ShipMovement : MonoBehaviour
         if (moveRight)
         {
             canDoAction = false;
-            if (!locked && columnPosition != 4)
+            if (!locked && columnPosition != 5)
             {
                 Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
                 target.x = transform.position.x + movementDistance;
