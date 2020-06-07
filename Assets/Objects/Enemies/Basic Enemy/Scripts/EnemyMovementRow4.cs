@@ -10,11 +10,9 @@ public class EnemyMovementRow4 : MonoBehaviour
     private Vector2 position;
 
     //private Direction shipDirection;
-
     private readonly float speed = 7f;
     private float rotationSpeed = 4f;
     private Vector3 startPosition;
-
     private Vector2 target;
     private Vector2 bottomLeftCorner;
     private Vector2 topLeftCorner;

@@ -10,10 +10,11 @@ public class Level1EnemyWaves : MonoBehaviour
     public GameObject level1EnemyRow3Outer;
     public GameObject level1EnemyRow3;
     public GameObject level1EnemyRow4;
+    public GameObject boss;
     public bool canInstantiateWave2 = true;
     public bool canInstantiateWave3 = true;
     public bool canInstantiateWave4 = true;
-
+    public bool canInstantiateboss = true;
     void Start()
     {
         StartCoroutine(instantiateEnemiesWave1());
@@ -35,6 +36,11 @@ public class Level1EnemyWaves : MonoBehaviour
         {
             StartCoroutine(instantiateEnemiesWave3());
             canInstantiateWave4 = false;
+        }
+        if (EnemyHurt.level1Enemies == -20 && canInstantiateboss)
+        {
+            StartCoroutine(instantiateBoss());
+            canInstantiateboss = false;
         }
     }
     public IEnumerator instantiateEnemiesWave1()
@@ -203,5 +209,15 @@ public class Level1EnemyWaves : MonoBehaviour
         Instantiate(level1EnemyRow4, spawnPosition18, transform.rotation);
         Instantiate(level1EnemyRow4, spawnPosition19, transform.rotation);
         Instantiate(level1EnemyRow4, spawnPosition20, transform.rotation);
+    }
+
+    public IEnumerator instantiateBoss()
+    {
+        yield return new WaitForSeconds(1.0f);
+        float xCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
+        float yCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0, 1.2f, 0))).y;
+        Vector2 spawnPosition = new Vector2(xCoordinate, yCoordinate);
+        Instantiate(boss, spawnPosition, transform.rotation);
+        //rememeber when instantiating new instances of boss to change BossMovement.settingPosition to true
     }
 }

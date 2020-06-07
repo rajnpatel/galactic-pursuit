@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyShoot : MonoBehaviour
 {
     private bool canShoot = true;
-    public GameObject EnemyBullet;
+    public GameObject EnemyLaser;
 
     private void Update()
     {
@@ -15,8 +15,8 @@ public class EnemyShoot : MonoBehaviour
 
     private IEnumerator NoFire()
     {
-        yield return new WaitForSeconds((float) RandomHandler.EnemyRandomShoot());
-        Instantiate(EnemyBullet, transform.position, transform.rotation);
+        yield return new WaitForSeconds((float)RandomHandler.EnemyRandomShoot());
+        Instantiate(EnemyLaser, transform.position, transform.rotation);
         canShoot = true;
     }
 }
