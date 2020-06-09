@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f020a3c636a8ea1458bf5af9f4c8b718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  BossLaser: {fileID: 6973008065718767720, guid: 3ce0d87b0d634e64db376c2d72ba16ff,
     type: 3}
 --- !u!114 &5049480237046310312
 MonoBehaviour:

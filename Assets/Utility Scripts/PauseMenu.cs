@@ -9,6 +9,18 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuPreferencesUI;
     public Text movementMethodText = null;
 
+    public void Start()
+    {
+        if (ShipMovement.taptoMove == true)
+        {
+            movementMethodText.text = "MOVEMENT METHOD: TAP TO MOVE";
+        }
+        else
+        {
+            movementMethodText.text = "MOVEMENT METHOD: SWIPE TO MOVE";
+        }
+    }
+
     private void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
