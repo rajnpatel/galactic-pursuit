@@ -9,6 +9,8 @@ public class Shield : MonoBehaviour
     public static bool shieldCanAppear = false;
     Rigidbody2D rb;
     Transform ShipObject;
+    public Sprite shieldNormal;
+    public Sprite shieldHurt;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,6 +35,7 @@ public class Shield : MonoBehaviour
             col.gameObject.CompareTag("Asteroid")
         )
         {
+            StartCoroutine(shieldDamaged());
             shieldHealth--;
         }
         if (shieldHealth == 0)
@@ -40,5 +43,15 @@ public class Shield : MonoBehaviour
             Ship.shield = false;
             Destroy(gameObject);
         }
+    }
+    public IEnumerator shieldDamaged()
+    {
+        gameObject.GetComponent<SpriteRenderer>().sprite = shieldHurt;
+        yield return new WaitForSeconds(0.05f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = shieldNormal;
+        yield return new WaitForSeconds(0.05f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = shieldHurt;
+        yield return new WaitForSeconds(0.05f);
+        gameObject.GetComponent<SpriteRenderer>().sprite = shieldNormal;
     }
 }

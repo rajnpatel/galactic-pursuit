@@ -123,7 +123,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movingLeft: 1
   movingRight: 0
-  settingPosition: 1
 --- !u!114 &-4698167875237371780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a16d84e15d0c24c9c28bd8ed60281c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BossLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  BossLaser: {fileID: 6973008065718767720, guid: 3ce0d87b0d634e64db376c2d72ba16ff,
     type: 3}
 --- !u!61 &6674136763821295928
 BoxCollider2D:

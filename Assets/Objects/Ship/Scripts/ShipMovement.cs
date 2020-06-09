@@ -12,6 +12,7 @@ public class ShipMovement : MonoBehaviour
     private Vector2 position;
     private readonly float speed = 15f;
     private Vector2 target;
+    private Vector2 touchedPos;
     public GameObject MovingLeftWind;
     public GameObject MovingRightWind;
     private Camera mainCamera;
@@ -20,8 +21,8 @@ public class ShipMovement : MonoBehaviour
     public bool detectSwipeOnlyAfterRelease = false;
     private float SWIPE_THRESHOLD = 0f;
     public bool canMove = true;
-    public static bool swipeToMove = true;
-    public static bool taptoMove = false;
+    public static bool swipeToMove = false;
+    public static bool taptoMove = true;
 
     private void Start()
     {
@@ -86,15 +87,20 @@ public class ShipMovement : MonoBehaviour
 
 
         if (Input.touchCount > 0 && !movementDisabled && taptoMove)
+
             switch (Input.GetTouch(0).phase)
             {
                 case TouchPhase.Began:
                     if (Input.GetTouch(0).position.x < Screen.width / 2 &&
                         Input.GetTouch(0).position.y < Screen.height / 2 && PauseMenu.gameIsPaused == false)
+                    {
                         moveLeft = true;
+                    }
                     else if (Input.GetTouch(0).position.x > Screen.width / 2 &&
                              Input.GetTouch(0).position.y < Screen.height / 2 && PauseMenu.gameIsPaused == false)
+                    {
                         moveRight = true;
+                    }
                     break;
             }
 
