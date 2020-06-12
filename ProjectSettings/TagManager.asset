@@ -23,6 +23,7 @@ TagManager:
   - FireProjectile
   - PoweredLaser
   - LaserPowerUp
+  - LifePowerUp
   layers:
   - Default
   - TransparentFX

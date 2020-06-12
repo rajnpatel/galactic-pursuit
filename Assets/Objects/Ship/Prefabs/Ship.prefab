@@ -102,6 +102,11 @@ MonoBehaviour:
     type: 3}
   MovingRightWind: {fileID: 5668439906340930519, guid: 593305307f485cc48a2b5bdc5e931c54,
     type: 3}
+  detectSwipeOnlyAfterRelease: 0
+  canMove: 1
+  movingShip: 0
+  movingToCenter: 1
+  currentScene: Level 1
 --- !u!212 &6857071572901219992
 SpriteRenderer:
   m_ObjectHideFlags: 0

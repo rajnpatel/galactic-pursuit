@@ -814,6 +814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604d0358bc1c450ab3675ab82041a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentScene: Main Menu
   sceneName: Level 1
   transitionAnim: {fileID: 155460995}
 --- !u!4 &1884402201

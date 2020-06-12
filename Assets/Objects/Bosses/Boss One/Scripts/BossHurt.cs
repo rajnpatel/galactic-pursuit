@@ -34,9 +34,14 @@ public class BossHurt : MonoBehaviour
             if (bossHealth <= 0)
             {
                 Destroy(gameObject);
+                EnemyHurt.level1Enemies--;
                 AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                if (EnemyHurt.level1Enemies == 0)
+                {
+                    ShipMovement.level1Transition = true;
+                }
             }
         }
         if (col.gameObject.CompareTag("FireProjectile"))
@@ -51,6 +56,11 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
+                EnemyHurt.level1Enemies--;
+                if (EnemyHurt.level1Enemies == 0)
+                {
+                    ShipMovement.level1Transition = true;
+                }
             }
         }
         if (col.gameObject.CompareTag("PoweredLaser"))
@@ -64,6 +74,11 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
+                EnemyHurt.level1Enemies--;
+                if (EnemyHurt.level1Enemies == 0)
+                {
+                    ShipMovement.level1Transition = true;
+                }
             }
         }
     }

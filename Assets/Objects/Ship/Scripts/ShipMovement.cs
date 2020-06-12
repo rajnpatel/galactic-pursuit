@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -23,9 +25,17 @@ public class ShipMovement : MonoBehaviour
     public bool canMove = true;
     public static bool swipeToMove = false;
     public static bool taptoMove = true;
+    public static bool level1Transition = false;
+    public static bool level1EndMovement = true;
+    private Vector2 levelClear;
+    public bool movingShip = false;
+    public bool movingToCenter = true;
+    public static bool transitionToLevel2 = false;
 
     private void Start()
     {
+        levelClear.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1.5f, 1))).x);
+        levelClear.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.5f, 1))).y);
         movementDistance = Screen.width / (Screen.width / 1.5f);
         position = transform.position;
         if (.5 <= Camera.main.aspect)
@@ -40,6 +50,33 @@ public class ShipMovement : MonoBehaviour
 
     private void Update()
     {
+        if (level1Transition && level1EndMovement)
+        {
+            StartCoroutine(disableShipMovement());
+        }
+        if (!level1EndMovement)
+        {
+            transform.position = position;
+            if (position.x != levelClear.x && movingToCenter)
+            {
+                position.x = Mathf.MoveTowards(transform.position.x, levelClear.x, Time.deltaTime * 3f);
+                transform.position = position;
+            }
+
+            if (position.x == levelClear.x && movementDisabled)
+            {
+                columnPosition = 3;
+                movingToCenter = false;
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 10f);
+                transform.position = position;
+            }
+            if (position.y == levelClear.y && movementDisabled)
+            {
+                movingToCenter = true;
+                transitionToLevel2 = true;
+            }
+        }
+
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
@@ -49,7 +86,7 @@ public class ShipMovement : MonoBehaviour
             }
 
             //Detects Swipe while finger is still moving
-            if (touch.phase == TouchPhase.Moved && canMove && PauseMenu.gameIsPaused == false && swipeToMove)
+            if (touch.phase == TouchPhase.Moved && canMove && PauseMenu.gameIsPaused == false && swipeToMove && !movementDisabled)
             {
 
                 if (!detectSwipeOnlyAfterRelease)
@@ -69,7 +106,7 @@ public class ShipMovement : MonoBehaviour
             }
         }
 
-        if (position.y != target.y)
+        if (position.y != target.y && movingToCenter)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * 7f);
             transform.position = position;
@@ -86,7 +123,7 @@ public class ShipMovement : MonoBehaviour
         }
 
 
-        if (Input.touchCount > 0 && !movementDisabled && taptoMove)
+        if (Input.touchCount > 0 && !movementDisabled && taptoMove && !movementDisabled)
 
             switch (Input.GetTouch(0).phase)
             {
@@ -276,5 +313,12 @@ public class ShipMovement : MonoBehaviour
                 canDoAction = true;
             }
         }
+    }
+    public IEnumerator disableShipMovement()
+    {
+        yield return new WaitForSeconds(2.0f);
+        movementDisabled = true;
+        level1EndMovement = false;
+        level1Transition = false;
     }
 }
