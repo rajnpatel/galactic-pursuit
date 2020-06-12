@@ -7,7 +7,7 @@ public class EnemyHurt : MonoBehaviour
 
     private AudioSource[] audioSources;
     public int enemyHealth = 5;
-    public static int level1Enemies = 52;
+    public static int level1Enemies = 73;
     private AudioClip explosionSound;
     private AudioClip laserImpactSound;
     private AudioClip fireImpactSound;
