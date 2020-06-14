@@ -28,6 +28,7 @@ public class SceneTransitions : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
         ShipMovement.movementDisabled = false;
+        ShipMovement.initialMove = true;
         ShipShoot.canShoot = true;
         ShipShoot.canFire = false;
         ShipShoot.weapon1 = true;
@@ -45,5 +46,22 @@ public class SceneTransitions : MonoBehaviour
         ShipMovement.movementDisabled = false;
         ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;
+        ShipMovement.initialMove = true;
+        if (ShipShoot.weapon1)
+        {
+            ShipShoot.canShoot = true;
+        }
+        if (ShipShoot.weapon2)
+        {
+            ShipShoot.canFire = true;
+        }
+        if (ShipShoot.weapon3)
+        {
+            ShipShoot.canShootPoweredLaser = true;
+        }
+        if (Ship.shield)
+        {
+            Shield.shieldCanAppear = true;
+        }
     }
 }

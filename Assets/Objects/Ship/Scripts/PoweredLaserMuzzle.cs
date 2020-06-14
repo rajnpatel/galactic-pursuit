@@ -16,6 +16,7 @@ public class PoweredLaserMuzzle : MonoBehaviour
     public Sprite muzzle9;
     public Sprite muzzle10;
     public bool canAnimate = true;
+    public bool foundClone = false;
 
     void Start()
     {
@@ -26,12 +27,18 @@ public class PoweredLaserMuzzle : MonoBehaviour
 
     void Update()
     {
+        if (Ship.hasDied && !foundClone)
+        {
+            foundClone = true;
+            ShipObject = GameObject.Find("Ship(Clone)").transform;
+        }
         if (canAnimate)
         {
+            transform.SetParent(ShipObject.transform, true);
             canAnimate = false;
             StartCoroutine(muzzleAnimation());
         }
-        if (ShipShoot.weapon3 == false)
+        if (ShipShoot.weapon3 || ShipShoot.allWeaponsDisabled)
         {
             Destroy(gameObject);
         }

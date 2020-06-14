@@ -24,6 +24,10 @@ public class LifePowerUp : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Ship"))
         {
+            if (Lives.lives < 3)
+            {
+                Lives.lives++;
+            }
             Destroy(gameObject);
         }
     }
