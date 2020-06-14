@@ -35,6 +35,10 @@ public class SceneTransitions : MonoBehaviour
         ShipShoot.weapon2 = false;
         ShipShoot.weapon3 = false;
         Ship.shield = false;
+        Ship.shipHealth = 3;
+        Lives.lives = 3;
+        Lives.liveTwoRespawn = true;
+        Lives.liveOneRespawn = true;
         EnemyHurt.level1Enemies = 73;
     }
 

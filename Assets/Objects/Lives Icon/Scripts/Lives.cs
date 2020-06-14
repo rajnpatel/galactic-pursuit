@@ -31,6 +31,7 @@ public class Lives : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Lives.lives);
         if (lives == 3)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = three;
