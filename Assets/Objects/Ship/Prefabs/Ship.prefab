@@ -85,7 +85,12 @@ MonoBehaviour:
   - {fileID: -2484030861835244207, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: -6905963577513531043, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
   - {fileID: 5972140380756631857, guid: 8dc6131203b9048e19d2d753bd1b9cc1, type: 3}
-  shipHealth: 10
+  explosion0: {fileID: 21300000, guid: 6425a3875d5f54ad5994dba67547e1c1, type: 3}
+  explosion1: {fileID: 21300000, guid: 8400b3aa0e7874cbfab16c4d422cb87d, type: 3}
+  explosion2: {fileID: 21300000, guid: 7c159bfe8bafc4ac9a435c4ecf102712, type: 3}
+  explosion3: {fileID: 21300000, guid: f7e6bdd70b8ac4d0b94fce5c56e3307d, type: 3}
+  explosion4: {fileID: 21300000, guid: f3f93a089b6e247f88fa5cd6abb2ad59, type: 3}
+  ship: {fileID: 6857071572901219993}
 --- !u!114 &1366944655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +111,6 @@ MonoBehaviour:
   canMove: 1
   movingShip: 0
   movingToCenter: 1
-  currentScene: Level 1
 --- !u!212 &6857071572901219992
 SpriteRenderer:
   m_ObjectHideFlags: 0

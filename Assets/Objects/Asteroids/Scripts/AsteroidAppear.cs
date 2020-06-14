@@ -11,7 +11,7 @@ public class AsteroidAppear : MonoBehaviour
     private void Update()
     {
         RandomNum = xCoordinates[Random.Range(0, 4)];
-        if (!canAppear) return;
+        if (!canAppear || ShipMovement.movementDisabled) return;
         canAppear = false;
         StartCoroutine(NoAppear());
     }

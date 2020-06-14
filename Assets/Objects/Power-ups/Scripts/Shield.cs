@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    public static int shieldHealth = 5;
+    public static int shieldHealth = 3;
     public GameObject shield;
     public static bool shieldCanAppear = false;
     Rigidbody2D rb;
@@ -18,6 +18,10 @@ public class Shield : MonoBehaviour
     }
     void Update()
     {
+        if (Ship.hasDied)
+        {
+            ShipObject = GameObject.Find("Ship(Clone)").transform;
+        }
         if (Ship.shield == true && shieldCanAppear == true)
         {
             shieldCanAppear = false;
@@ -29,7 +33,7 @@ public class Shield : MonoBehaviour
     {
         // TODO: Need to make a list of things that can damage the ship and check if the gameObject exists in that list
         // This if statement is unsustainable as more hostile objects are added
-        if (
+        if (ShipMovement.movementDisabled == false &&
             col.gameObject.CompareTag("EnemyProjectile") ||
             col.gameObject.CompareTag("BasicEnemy") ||
             col.gameObject.CompareTag("Asteroid")

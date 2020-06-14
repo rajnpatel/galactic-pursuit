@@ -31,6 +31,7 @@ public class ShipMovement : MonoBehaviour
     public bool movingShip = false;
     public bool movingToCenter = true;
     public static bool transitionToLevel2 = false;
+    public static bool initialMove = true;
 
     private void Start()
     {
@@ -106,10 +107,14 @@ public class ShipMovement : MonoBehaviour
             }
         }
 
-        if (position.y != target.y && movingToCenter)
+        if (position.y != target.y && initialMove)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * 7f);
             transform.position = position;
+            if (position.y == target.y)
+            {
+                initialMove = false;
+            }
         }
 
         if (Input.GetKeyDown("left") && canDoAction && PauseMenu.gameIsPaused == false && !movementDisabled)

@@ -14,6 +14,7 @@ public class ShipShoot : MonoBehaviour
     public static bool weapon1 = true;
     public static bool weapon2 = false;
     public static bool weapon3 = false;
+    public static bool allWeaponsDisabled = false;
     private void Start()
     {
         audioData = GetComponent<AudioSource>();
@@ -21,17 +22,17 @@ public class ShipShoot : MonoBehaviour
 
     private void Update()
     {
-        if (canShoot && weapon1)
+        if (canShoot && weapon1 && !allWeaponsDisabled)
         {
             StartCoroutine(NoShoot());
         }
         canShoot = false;
-        if (canFire && weapon2)
+        if (canFire && weapon2 && !allWeaponsDisabled)
         {
             StartCoroutine(NoFire());
         }
         canFire = false;
-        if (canShootPoweredLaser && weapon3)
+        if (canShootPoweredLaser && weapon3 && !allWeaponsDisabled)
         {
             StartCoroutine(NoShootPoweredLaser());
         }

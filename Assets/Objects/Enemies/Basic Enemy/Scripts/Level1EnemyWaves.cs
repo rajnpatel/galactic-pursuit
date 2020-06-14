@@ -50,11 +50,11 @@ public class Level1EnemyWaves : MonoBehaviour
 
         yield return new WaitForSeconds(0.01f);
 
-        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
-        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
-        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
-        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
-        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
+        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
+        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.305f, 0f, 1))).x;
+        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0f, 1))).x;
+        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.705f, 0f, 1))).x;
+        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
 
         float yCoordinateRow1 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.35f, 1))).y;
         float yCoordinateRow2 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.275f, 1))).y;
@@ -100,11 +100,11 @@ public class Level1EnemyWaves : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
-        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
-        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
-        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
-        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
+        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
+        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.305f, 0f, 1))).x;
+        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0f, 1))).x;
+        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.705f, 0f, 1))).x;
+        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
 
         float yCoordinateRow1 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.35f, 1))).y;
         float yCoordinateRow2 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.275f, 1))).y;
@@ -157,11 +157,11 @@ public class Level1EnemyWaves : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
-        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
-        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
-        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
-        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
-        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
+        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
+        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.305f, 0f, 1))).x;
+        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0f, 1))).x;
+        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.705f, 0f, 1))).x;
+        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
 
         float yCoordinateRow1 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.35f, 1))).y;
         float yCoordinateRow2 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.275f, 1))).y;
