@@ -10,7 +10,7 @@ public class SceneTransitions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && currentScene == "Main Menu")
+        if (Input.GetMouseButton(0) && currentScene == "Main Menu" || currentScene == "Game Over")
         {
             StartCoroutine(LoadScene());
 
