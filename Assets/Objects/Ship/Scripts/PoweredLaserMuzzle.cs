@@ -15,30 +15,33 @@ public class PoweredLaserMuzzle : MonoBehaviour
     public Sprite muzzle8;
     public Sprite muzzle9;
     public Sprite muzzle10;
-    public bool canAnimate = true;
-    public bool foundClone = false;
+    public static bool canAnimateMuzzle = true;
+    public static bool foundClone = false;
 
     void Start()
     {
         position = transform.position;
-        ShipObject = GameObject.Find("Ship").transform;
-        transform.SetParent(ShipObject.transform, true);
+        if (!Ship.hasDied)
+        {
+            ShipObject = GameObject.Find("Ship").transform;
+            transform.SetParent(ShipObject.transform, true);
+        }
+        else
+        {
+            ShipObject = GameObject.Find("Ship(Clone)").transform;
+            transform.SetParent(ShipObject.transform, true);
+        }
     }
 
     void Update()
     {
-        if (Ship.hasDied && !foundClone)
-        {
-            foundClone = true;
-            ShipObject = GameObject.Find("Ship(Clone)").transform;
-        }
-        if (canAnimate)
+        if (canAnimateMuzzle)
         {
             transform.SetParent(ShipObject.transform, true);
-            canAnimate = false;
+            canAnimateMuzzle = false;
             StartCoroutine(muzzleAnimation());
         }
-        if (ShipShoot.weapon3 || ShipShoot.allWeaponsDisabled)
+        if (!ShipShoot.weapon3 || ShipShoot.allWeaponsDisabled)
         {
             Destroy(gameObject);
         }
@@ -63,6 +66,6 @@ public class PoweredLaserMuzzle : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().sprite = muzzle10;
         yield return new WaitForSeconds(0.01f);
         gameObject.GetComponent<SpriteRenderer>().sprite = muzzle2;
-        canAnimate = true;
+        canAnimateMuzzle = true;
     }
 }

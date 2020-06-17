@@ -35,6 +35,7 @@ public class SceneTransitions : MonoBehaviour
         ShipShoot.weapon2 = false;
         ShipShoot.weapon3 = false;
         Ship.shield = false;
+        Ship.hasDied = false;
         Ship.shipHealth = 3;
         Lives.lives = 3;
         Lives.liveTwoRespawn = true;
@@ -47,6 +48,8 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
+        Ship.hasDied = false;
+        PoweredLaserMuzzle.foundClone = false;
         ShipMovement.movementDisabled = false;
         ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;
@@ -62,6 +65,7 @@ public class SceneTransitions : MonoBehaviour
         if (ShipShoot.weapon3)
         {
             ShipShoot.canShootPoweredLaser = true;
+            PoweredLaserMuzzle.canAnimateMuzzle = true;
         }
         if (Ship.shield)
         {

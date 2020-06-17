@@ -27,11 +27,22 @@ public class Lives : MonoBehaviour
         }
         target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0, 1))).x);
 
+        if (lives == 3)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = three;
+        }
+        else if (lives == 2)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = two;
+        }
+        else if (lives == 1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = one;
+        }
     }
 
     void Update()
     {
-        Debug.Log(Lives.lives);
         if (lives == 3)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = three;
