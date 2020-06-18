@@ -48,7 +48,7 @@ public class Level1EnemyWaves : MonoBehaviour
         // Note: using a coroutine here since using public void instantiateEnemiesWave1() causes enemies to align
         // incorrectly on mobile for some reason
 
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(3f);
 
         float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
         float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.305f, 0f, 1))).x;

@@ -37,6 +37,7 @@ public class SceneTransitions : MonoBehaviour
         Ship.shield = false;
         Ship.hasDied = false;
         Ship.shipHealth = 3;
+        ShipMovement.columnPosition = 3;
         Lives.lives = 3;
         Lives.liveTwoRespawn = true;
         Lives.liveOneRespawn = true;

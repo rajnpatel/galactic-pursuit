@@ -25,7 +25,7 @@ public class Lives : MonoBehaviour
         {
             target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0, 1))).y);
         }
-        target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0, 1))).x);
+        target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0, 1))).x);
 
         if (lives == 3)
         {
