@@ -111,6 +111,8 @@ MonoBehaviour:
   canMove: 1
   movingShip: 0
   movingToCenter: 1
+  poweredLaserMuzzle: {fileID: 2471688815610259378, guid: e249ea3ab838d2c45b1db558aa12a972,
+    type: 3}
 --- !u!212 &6857071572901219992
 SpriteRenderer:
   m_ObjectHideFlags: 0

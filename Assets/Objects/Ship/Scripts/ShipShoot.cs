@@ -18,8 +18,18 @@ public class ShipShoot : MonoBehaviour
     private void Start()
     {
         audioData = GetComponent<AudioSource>();
+        if (weapon3)
+        {
+            StartCoroutine(delayInstantiate());
+        }
     }
-
+    public IEnumerator delayInstantiate()
+    {
+        //note: coroutine needed as without it, muzzle instantiates at -1 on z axis and therefore
+        //does not show up in the game
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(PoweredLaserMuzzle, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
+    }
     private void Update()
     {
         if (canShoot && weapon1 && !allWeaponsDisabled)
@@ -50,11 +60,11 @@ public class ShipShoot : MonoBehaviour
         }
         if (col.gameObject.CompareTag("LaserPowerUp") && weapon3 == false)
         {
+            Instantiate(PoweredLaserMuzzle, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
             weapon1 = false;
             weapon2 = false;
             weapon3 = true;
             canShootPoweredLaser = true;
-            Instantiate(PoweredLaserMuzzle, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
         }
     }
 

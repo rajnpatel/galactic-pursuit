@@ -10,10 +10,9 @@ public class SceneTransitions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && currentScene == "Main Menu")
+        if (Input.GetMouseButton(0) && currentScene == "Main Menu" || Input.GetMouseButton(0) && currentScene == "Game Over")
         {
             StartCoroutine(LoadScene());
-
         }
 
         if (ShipMovement.transitionToLevel2)
@@ -34,8 +33,15 @@ public class SceneTransitions : MonoBehaviour
         ShipShoot.weapon1 = true;
         ShipShoot.weapon2 = false;
         ShipShoot.weapon3 = false;
+        ShipShoot.allWeaponsDisabled = false;
         Ship.shield = false;
-        EnemyHurt.level1Enemies = 73;
+        Ship.hasDied = false;
+        Ship.shipHealth = 3;
+        ShipMovement.columnPosition = 3;
+        Lives.lives = 3;
+        Lives.liveTwoRespawn = true;
+        Lives.liveOneRespawn = true;
+        Level1EnemyHurt.level1Enemies = 73;
     }
 
     private IEnumerator LoadLevel2()
@@ -43,6 +49,7 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
+        Ship.hasDied = false;
         ShipMovement.movementDisabled = false;
         ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;
@@ -58,6 +65,7 @@ public class SceneTransitions : MonoBehaviour
         if (ShipShoot.weapon3)
         {
             ShipShoot.canShootPoweredLaser = true;
+            PoweredLaserMuzzle.canAnimateMuzzle = true;
         }
         if (Ship.shield)
         {

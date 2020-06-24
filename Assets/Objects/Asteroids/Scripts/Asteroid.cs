@@ -13,6 +13,7 @@ public class Asteroid : MonoBehaviour
     public GameObject HealthPowerUp;
     public GameObject FirePowerUp;
     public GameObject ShieldPowerUp;
+    public GameObject LifePowerUp;
     private AudioClip laserImpactSound;
     private readonly float powerUpDelay = .01f;
     private float RandomNum;
@@ -59,7 +60,7 @@ public class Asteroid : MonoBehaviour
             AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
             Destroy(gameObject);
 
-            if (Random.Range(1, 4) == 1 && canAppear)
+            if (Random.Range(1, 5) == 1 && canAppear)
             {
                 Instantiate(LaserPowerUp,
                     transform.position,
@@ -67,7 +68,7 @@ public class Asteroid : MonoBehaviour
                 canAppear = false;
                 StartCoroutine(NoAppear());
             }
-            else if (Random.Range(1, 4) == 2 && canAppear)
+            else if (Random.Range(1, 5) == 2 && canAppear)
             {
                 Instantiate(HealthPowerUp,
                     transform.position,
@@ -75,9 +76,17 @@ public class Asteroid : MonoBehaviour
                 canAppear = false;
                 StartCoroutine(NoAppear());
             }
-            else if (Random.Range(1, 4) == 3 && canAppear)
+            else if (Random.Range(1, 5) == 3 && canAppear)
             {
                 Instantiate(FirePowerUp,
+                    transform.position,
+                    transform.rotation);
+                canAppear = false;
+                StartCoroutine(NoAppear());
+            }
+            else if (Random.Range(1, 5) == 4 && canAppear)
+            {
+                Instantiate(LifePowerUp,
                     transform.position,
                     transform.rotation);
                 canAppear = false;

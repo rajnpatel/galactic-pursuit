@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemyLaser : MonoBehaviour
+public class Level2EnemyLaser : MonoBehaviour
 {
     private const float velX = 0;
 

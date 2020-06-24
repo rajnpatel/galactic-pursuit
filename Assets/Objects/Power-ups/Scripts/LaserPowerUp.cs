@@ -5,9 +5,7 @@ using UnityEngine;
 public class LaserPowerUp : MonoBehaviour
 {
     Rigidbody2D rb;
-
     private const float velX = 0;
-
     private float velY = -3f;
 
     void Start()

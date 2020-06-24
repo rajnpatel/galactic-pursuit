@@ -25,8 +25,20 @@ public class Lives : MonoBehaviour
         {
             target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0, 1))).y);
         }
-        target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0, 1))).x);
+        target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0, 1))).x);
 
+        if (lives == 3)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = three;
+        }
+        else if (lives == 2)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = two;
+        }
+        else if (lives == 1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = one;
+        }
     }
 
     void Update()
@@ -50,6 +62,10 @@ public class Lives : MonoBehaviour
         else if (lives == 0)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = zero;
+        }
+        if (lives == 2)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = two;
         }
     }
     public IEnumerator respawn()
