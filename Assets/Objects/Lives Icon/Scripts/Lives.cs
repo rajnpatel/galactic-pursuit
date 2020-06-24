@@ -63,6 +63,10 @@ public class Lives : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = zero;
         }
+        if (lives == 2)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = two;
+        }
     }
     public IEnumerator respawn()
     {

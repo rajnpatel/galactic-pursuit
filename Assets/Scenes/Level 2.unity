@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 457393409}
   - component: {fileID: 457393407}
   - component: {fileID: 457393406}
+  - component: {fileID: 457393408}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -858,6 +859,35 @@ MonoBehaviour:
   shield: {fileID: 578401181782146303, guid: 576b2d73a097c440d81836cb292ff239, type: 3}
   shieldNormal: {fileID: 0}
   shieldHurt: {fileID: 0}
+--- !u!114 &457393408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457393405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa6bcd9bdf8f1c4a854febd10fbadb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level2EnemyRow1: {fileID: 6883823292704736388, guid: c6a2f73172f186144b79e7d7a0b580d4,
+    type: 3}
+  level2EnemyRow2: {fileID: 4226855442906009500, guid: b1bc016c456e8b840bd7df6edbf33cb1,
+    type: 3}
+  level2EnemyRow2Outer: {fileID: 8518764547795731761, guid: f3397d3284f4d3c4eacec79d000a1b34,
+    type: 3}
+  level2EnemyRow3Outer: {fileID: 1023843246595149044, guid: efe32f24e630c7448bb6be5ee88c3f53,
+    type: 3}
+  level2EnemyRow3: {fileID: 4932806002715344232, guid: d72dc89e3362c734299b83b82d16c568,
+    type: 3}
+  level2EnemyRow4: {fileID: 3335601755974108911, guid: e708a8def7f075a4584e6c1b6ad9351d,
+    type: 3}
+  boss: {fileID: 8698124949493572222, guid: 5fb0583fdb98943af9a483aa589a925f, type: 3}
+  canInstantiateWave2: 1
+  canInstantiateWave3: 1
+  canInstantiateWave4: 1
+  canInstantiateboss: 1
 --- !u!114 &457393409
 MonoBehaviour:
   m_ObjectHideFlags: 0

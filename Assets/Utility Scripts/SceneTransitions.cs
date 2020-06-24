@@ -10,10 +10,9 @@ public class SceneTransitions : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButton(0) && currentScene == "Main Menu" || currentScene == "Game Over")
+        if (Input.GetMouseButton(0) && currentScene == "Main Menu" || Input.GetMouseButton(0) && currentScene == "Game Over")
         {
             StartCoroutine(LoadScene());
-
         }
 
         if (ShipMovement.transitionToLevel2)
@@ -34,6 +33,7 @@ public class SceneTransitions : MonoBehaviour
         ShipShoot.weapon1 = true;
         ShipShoot.weapon2 = false;
         ShipShoot.weapon3 = false;
+        ShipShoot.allWeaponsDisabled = false;
         Ship.shield = false;
         Ship.hasDied = false;
         Ship.shipHealth = 3;
@@ -41,7 +41,7 @@ public class SceneTransitions : MonoBehaviour
         Lives.lives = 3;
         Lives.liveTwoRespawn = true;
         Lives.liveOneRespawn = true;
-        EnemyHurt.level1Enemies = 73;
+        Level1EnemyHurt.level1Enemies = 73;
     }
 
     private IEnumerator LoadLevel2()
@@ -50,7 +50,6 @@ public class SceneTransitions : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
         Ship.hasDied = false;
-        PoweredLaserMuzzle.foundClone = false;
         ShipMovement.movementDisabled = false;
         ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;

@@ -34,11 +34,11 @@ public class BossHurt : MonoBehaviour
             if (bossHealth <= 0)
             {
                 Destroy(gameObject);
-                EnemyHurt.level1Enemies--;
+                Level1EnemyHurt.level1Enemies--;
                 AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
-                if (EnemyHurt.level1Enemies == 0)
+                if (Level1EnemyHurt.level1Enemies == 0)
                 {
                     ShipMovement.level1Transition = true;
                 }
@@ -56,8 +56,8 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
-                EnemyHurt.level1Enemies--;
-                if (EnemyHurt.level1Enemies == 0)
+                Level1EnemyHurt.level1Enemies--;
+                if (Level1EnemyHurt.level1Enemies == 0)
                 {
                     ShipMovement.level1Transition = true;
                 }
@@ -74,8 +74,8 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
-                EnemyHurt.level1Enemies--;
-                if (EnemyHurt.level1Enemies == 0)
+                Level1EnemyHurt.level1Enemies--;
+                if (Level1EnemyHurt.level1Enemies == 0)
                 {
                     ShipMovement.level1Transition = true;
                 }

@@ -22,22 +22,22 @@ public class Level1EnemyWaves : MonoBehaviour
 
     void Update()
     {
-        if (EnemyHurt.level1Enemies == 61 && canInstantiateWave2)
+        if (Level1EnemyHurt.level1Enemies == 61 && canInstantiateWave2)
         {
             StartCoroutine(instantiateEnemiesWave2());
             canInstantiateWave2 = false;
         }
-        if (EnemyHurt.level1Enemies == 41 && canInstantiateWave3)
+        if (Level1EnemyHurt.level1Enemies == 41 && canInstantiateWave3)
         {
             StartCoroutine(instantiateEnemiesWave2());
             canInstantiateWave3 = false;
         }
-        if (EnemyHurt.level1Enemies == 21 && canInstantiateWave4)
+        if (Level1EnemyHurt.level1Enemies == 21 && canInstantiateWave4)
         {
             StartCoroutine(instantiateEnemiesWave3());
             canInstantiateWave4 = false;
         }
-        if (EnemyHurt.level1Enemies == 1 && canInstantiateboss)
+        if (Level1EnemyHurt.level1Enemies == 1 && canInstantiateboss)
         {
             StartCoroutine(instantiateBoss());
             canInstantiateboss = false;
@@ -47,6 +47,7 @@ public class Level1EnemyWaves : MonoBehaviour
     {
         // Note: using a coroutine here since using public void instantiateEnemiesWave1() causes enemies to align
         // incorrectly on mobile for some reason
+        // Update: Coroutine needed for delay after Level 1 text regardless
 
         yield return new WaitForSeconds(3f);
 

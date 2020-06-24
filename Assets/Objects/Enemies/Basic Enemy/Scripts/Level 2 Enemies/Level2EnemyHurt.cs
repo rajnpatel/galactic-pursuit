@@ -1,23 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class EnemyHurt : MonoBehaviour
+public class Level2EnemyHurt : MonoBehaviour
 {
-    private Animator animator;
-
     private AudioSource[] audioSources;
-    public int enemyHealth = 5;
-    public static int level1Enemies = 73;
+    public int enemyHealth = 7;
+    public static int level2Enemies = 0;
     private AudioClip explosionSound;
     private AudioClip laserImpactSound;
     private AudioClip fireImpactSound;
     private AudioClip poweredLaserImpactSound;
     public GameObject enemyExplosion;
     public GameObject enemyFire;
+    public bool canAnimate = true;
+    public bool enemy1 = true;
+    public bool enemy2 = false;
+    public Sprite enemyIdle1;
+    public Sprite enemyIdle2;
+    public Sprite enemyIdle1Hurt;
+    public Sprite enemyIdle2Hurt;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
         audioSources = GetComponents<AudioSource>();
         laserImpactSound = audioSources[0].clip;
         explosionSound = audioSources[1].clip;
@@ -25,17 +29,60 @@ public class EnemyHurt : MonoBehaviour
         poweredLaserImpactSound = audioSources[3].clip;
     }
 
+    private void Update()
+    {
+        if (canAnimate)
+        {
+            canAnimate = false;
+            StartCoroutine(enemyAnimate());
+        }
+    }
+    private IEnumerator enemyAnimate()
+    {
+        yield return new WaitForSeconds(0.5f);
+        enemy1 = true;
+        enemy2 = false;
+        gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle1;
+        yield return new WaitForSeconds(0.5f);
+        enemy1 = false;
+        enemy2 = true;
+        gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle2;
+        canAnimate = true;
+    }
+    private IEnumerator enemyHurt()
+    {
+        if (enemy1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle1Hurt;
+            yield return new WaitForSeconds(0.05f);
+            if (enemy1)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle1;
+            }
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle2Hurt;
+            yield return new WaitForSeconds(0.05f);
+            if (enemy2)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle2;
+            }
+        }
+
+    }
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("ShipBullet"))
         {
             enemyHealth -= 1;
-            animator.SetTrigger("Damaged");
+            StartCoroutine(enemyHurt());
             audioSources[0].PlayOneShot(laserImpactSound);
             if (enemyHealth <= 0)
             {
                 Destroy(gameObject);
-                level1Enemies--;
+                level2Enemies--;
                 AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
@@ -44,12 +91,12 @@ public class EnemyHurt : MonoBehaviour
         if (col.gameObject.CompareTag("FireProjectile"))
         {
             enemyHealth -= 2;
-            animator.SetTrigger("Damaged");
+            StartCoroutine(enemyHurt());
             audioSources[2].PlayOneShot(fireImpactSound);
             Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
             if (enemyHealth <= 0)
             {
-                level1Enemies--;
+                level2Enemies--;
                 AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
@@ -59,11 +106,11 @@ public class EnemyHurt : MonoBehaviour
         if (col.gameObject.CompareTag("PoweredLaser"))
         {
             enemyHealth -= 1;
-            animator.SetTrigger("Damaged");
+            StartCoroutine(enemyHurt());
             audioSources[3].PlayOneShot(poweredLaserImpactSound);
             if (enemyHealth <= 0)
             {
-                level1Enemies--;
+                level2Enemies--;
                 AudioSource.PlayClipAtPoint(poweredLaserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);

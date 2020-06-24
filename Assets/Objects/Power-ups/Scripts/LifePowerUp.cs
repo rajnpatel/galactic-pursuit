@@ -27,6 +27,14 @@ public class LifePowerUp : MonoBehaviour
             if (Lives.lives < 3)
             {
                 Lives.lives++;
+                if (Lives.lives == 3)
+                {
+                    Lives.liveTwoRespawn = true;
+                }
+                else if (Lives.lives == 2)
+                {
+                    Lives.liveOneRespawn = true;
+                }
             }
             Destroy(gameObject);
         }

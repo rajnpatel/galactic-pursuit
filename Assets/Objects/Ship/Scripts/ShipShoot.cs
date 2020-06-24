@@ -20,10 +20,16 @@ public class ShipShoot : MonoBehaviour
         audioData = GetComponent<AudioSource>();
         if (weapon3)
         {
-            Instantiate(PoweredLaserMuzzle, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
+            StartCoroutine(delayInstantiate());
         }
     }
-
+    public IEnumerator delayInstantiate()
+    {
+        //note: coroutine needed as without it, muzzle instantiates at -1 on z axis and therefore
+        //does not show up in the game
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(PoweredLaserMuzzle, new Vector3(transform.position.x, transform.position.y + 0.5f), transform.rotation);
+    }
     private void Update()
     {
         if (canShoot && weapon1 && !allWeaponsDisabled)

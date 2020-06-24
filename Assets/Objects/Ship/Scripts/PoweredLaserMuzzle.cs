@@ -16,8 +16,6 @@ public class PoweredLaserMuzzle : MonoBehaviour
     public Sprite muzzle9;
     public Sprite muzzle10;
     public static bool canAnimateMuzzle = true;
-    public static bool foundClone = false;
-
     void Start()
     {
         position = transform.position;
@@ -43,6 +41,7 @@ public class PoweredLaserMuzzle : MonoBehaviour
         }
         if (!ShipShoot.weapon3 || ShipShoot.allWeaponsDisabled)
         {
+            Debug.Log("asdf");
             Destroy(gameObject);
         }
     }

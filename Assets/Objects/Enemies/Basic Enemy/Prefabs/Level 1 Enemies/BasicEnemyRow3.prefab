@@ -9,15 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4784897145096618695}
-  - component: {fileID: 2997989352846395348}
+  - component: {fileID: -8587564533452369106}
   - component: {fileID: 8093038042352355081}
+  - component: {fileID: 7132872257948116488}
   - component: {fileID: 3555305965232940565}
-  - component: {fileID: 8938927271976620255}
   - component: {fileID: 5399229769675178118}
   - component: {fileID: 6534315269081075684}
   - component: {fileID: 7948418715913038737}
   - component: {fileID: 6136664643765257733}
-  - component: {fileID: -8587564533452369106}
   - component: {fileID: -7283090693457489305}
   - component: {fileID: 6309753460938786700}
   m_Layer: 0
@@ -41,7 +40,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2997989352846395348
+--- !u!114 &-8587564533452369106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932806002715344232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a42c78c2d541eb4db5f199444ad2eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 5
+--- !u!114 &8093038042352355081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932806002715344232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bad965274b0077b41b4847760ac58034, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+    type: 3}
+--- !u!114 &7132872257948116488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,19 +84,16 @@ MonoBehaviour:
     type: 3}
   enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
     type: 3}
---- !u!114 &8093038042352355081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932806002715344232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad965274b0077b41b4847760ac58034, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  canAnimate: 1
+  enemy1: 1
+  enemy2: 0
+  enemyIdle1: {fileID: -6704371230968284964, guid: 178bbafc4970649f2b7342ed4da4ea97,
+    type: 3}
+  enemyIdle2: {fileID: -5284886491676615149, guid: 178bbafc4970649f2b7342ed4da4ea97,
+    type: 3}
+  enemyIdle1Hurt: {fileID: 6173176404978704886, guid: 178bbafc4970649f2b7342ed4da4ea97,
+    type: 3}
+  enemyIdle2Hurt: {fileID: -3076883900536412770, guid: 178bbafc4970649f2b7342ed4da4ea97,
     type: 3}
 --- !u!212 &3555305965232940565
 SpriteRenderer:
@@ -123,25 +146,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8938927271976620255
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932806002715344232}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44f015c5c48274958bdb67b1fee5a1aa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &5399229769675178118
 Rigidbody2D:
   serializedVersion: 4
@@ -381,19 +385,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8587564533452369106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932806002715344232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a42c78c2d541eb4db5f199444ad2eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 5
 --- !u!82 &-7283090693457489305
 AudioSource:
   m_ObjectHideFlags: 0
