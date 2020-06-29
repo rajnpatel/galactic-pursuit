@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6456972910114978603}
   - component: {fileID: -6015589217186284047}
   - component: {fileID: -7041211799547264878}
-  - component: {fileID: -1771404985341286456}
   - component: {fileID: 3074379427458818041}
   - component: {fileID: 7490025778077051187}
   - component: {fileID: 5841576507365849450}
@@ -20,6 +19,7 @@ GameObject:
   - component: {fileID: 5680543014232604649}
   - component: {fileID: -710233235484409590}
   - component: {fileID: 2488075323771211634}
+  - component: {fileID: -9062967246762431898}
   m_Layer: 0
   m_Name: BasicEnemyRow1
   m_TagString: BasicEnemy
@@ -79,20 +79,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
     type: 3}
---- !u!114 &-1771404985341286456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6883823292704736388}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e091f28dfbf284826bdc0313f5aa3f3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 5
-  settingPosition: 1
 --- !u!212 &3074379427458818041
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -593,3 +579,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-9062967246762431898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883823292704736388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeb4009de65be52438bc26c26cdacee2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 5
+  settingPosition: 1

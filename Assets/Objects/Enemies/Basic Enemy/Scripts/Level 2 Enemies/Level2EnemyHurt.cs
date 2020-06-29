@@ -5,7 +5,7 @@ public class Level2EnemyHurt : MonoBehaviour
 {
     private AudioSource[] audioSources;
     public int enemyHealth = 7;
-    public static int level2Enemies = 0;
+    public static int level2Enemies = 30;
     private AudioClip explosionSound;
     private AudioClip laserImpactSound;
     private AudioClip fireImpactSound;

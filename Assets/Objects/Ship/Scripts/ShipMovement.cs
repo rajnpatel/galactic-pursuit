@@ -68,7 +68,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 10f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 15f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)
