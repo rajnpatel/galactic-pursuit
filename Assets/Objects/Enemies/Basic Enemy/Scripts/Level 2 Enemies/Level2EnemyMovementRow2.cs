@@ -6,15 +6,11 @@ public class Level2EnemyMovementRow2 : MonoBehaviour
 {
     private const float movementSpeed = 1f;
     public int enemyHealth = 5;
-
     private Vector2 position;
-
     //private Direction shipDirection;
-
     private readonly float speed = 7f;
     private float rotationSpeed = 4f;
     private Vector3 startPosition;
-
     private Vector2 target;
     private Vector2 bottomLeftCorner;
     private Vector2 topLeftCorner;

@@ -41,7 +41,7 @@ public class PoweredLaserMuzzle : MonoBehaviour
         }
         if (!ShipShoot.weapon3 || ShipShoot.allWeaponsDisabled)
         {
-            Debug.Log("asdf");
+            canAnimateMuzzle = true;
             Destroy(gameObject);
         }
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementRow1 : MonoBehaviour
+public class Level2EnemyMovementRow1 : MonoBehaviour
 {
     //private const float movementSpeed = 1f;
     private Vector2 position;
@@ -21,7 +21,7 @@ public class EnemyMovementRow1 : MonoBehaviour
     private void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .55f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
@@ -30,12 +30,12 @@ public class EnemyMovementRow1 : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y && settingPosition == true)
+        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .55f, 1))).y && settingPosition == true)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
         }
-        if (Level1EnemyHurt.level1Enemies <= 21)
+        /*if (Level1EnemyHurt.level1Enemies <= 21)
         {
             if (position.y == target.y)
             {
@@ -61,7 +61,7 @@ public class EnemyMovementRow1 : MonoBehaviour
                 position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
                 transform.position = position;
             }
-        }
+        }*/
     }
     public IEnumerator delayRotation()
     {
