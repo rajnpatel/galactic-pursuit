@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementRow2Outer : MonoBehaviour
+public class Level2EnemyMovementRow2Outer : MonoBehaviour
 {
     private const float movementSpeed = 1f;
     public int enemyHealth = 5;
@@ -28,8 +28,8 @@ public class EnemyMovementRow2Outer : MonoBehaviour
         target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .7f, 1))).y;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
-        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
-        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
+        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.10f, 0f, 1))).x;
+        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.90f, 0f, 1))).x;
     }
 
     private void Update()

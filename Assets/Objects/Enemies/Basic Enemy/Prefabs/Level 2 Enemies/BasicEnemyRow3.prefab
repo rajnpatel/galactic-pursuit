@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4784897145096618695}
   - component: {fileID: 4296503372012351682}
+  - component: {fileID: 6334051369104187294}
   - component: {fileID: 8093038042352355081}
-  - component: {fileID: -8587564533452369106}
   - component: {fileID: 3555305965232940565}
   - component: {fileID: 8938927271976620255}
   - component: {fileID: 5399229769675178118}
@@ -65,6 +65,19 @@ MonoBehaviour:
   enemyIdle2: {fileID: 21300000, guid: 291befe58b5bf9045bdae990c5c3a889, type: 3}
   enemyIdle1Hurt: {fileID: 21300000, guid: 351f3bfb5dda7a749a1962b2ceef20ce, type: 3}
   enemyIdle2Hurt: {fileID: 21300000, guid: 56d5e8ca5a525f1458d536c6d01d1fef, type: 3}
+--- !u!114 &6334051369104187294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932806002715344232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d6487c350c1630429af9153b9f50e82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 5
 --- !u!114 &8093038042352355081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,21 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad965274b0077b41b4847760ac58034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  EnemyLaser: {fileID: 7162818345560686426, guid: b58087853b17a6544be6c1cae2068b51,
     type: 3}
---- !u!114 &-8587564533452369106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932806002715344232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a42c78c2d541eb4db5f199444ad2eca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 5
 --- !u!212 &3555305965232940565
 SpriteRenderer:
   m_ObjectHideFlags: 0

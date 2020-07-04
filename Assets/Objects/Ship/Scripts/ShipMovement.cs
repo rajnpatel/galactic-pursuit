@@ -29,9 +29,10 @@ public class ShipMovement : MonoBehaviour
     public static bool level1EndMovement = true;
     private Vector2 levelClear;
     public bool movingShip = false;
-    public bool movingToCenter = true;
+    public static bool movingToCenter = true;
     public static bool transitionToLevel2 = false;
     public static bool initialMove = true;
+    public static bool shipCanMoveUp = false;
 
     private void Start()
     {
@@ -64,7 +65,7 @@ public class ShipMovement : MonoBehaviour
                 transform.position = position;
             }
 
-            if (position.x == levelClear.x && movementDisabled)
+            if (position.x == levelClear.x && shipCanMoveUp)
             {
                 columnPosition = 3;
                 movingToCenter = false;
@@ -73,6 +74,7 @@ public class ShipMovement : MonoBehaviour
             }
             if (position.y == levelClear.y && movementDisabled)
             {
+                shipCanMoveUp = false;
                 movingToCenter = true;
                 transitionToLevel2 = true;
             }
@@ -322,6 +324,7 @@ public class ShipMovement : MonoBehaviour
     public IEnumerator disableShipMovement()
     {
         yield return new WaitForSeconds(2.0f);
+        shipCanMoveUp = true;
         movementDisabled = true;
         level1EndMovement = false;
         level1Transition = false;

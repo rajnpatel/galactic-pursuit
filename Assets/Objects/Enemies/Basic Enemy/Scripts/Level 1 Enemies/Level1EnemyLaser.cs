@@ -5,7 +5,7 @@ public class Level1EnemyLaser : MonoBehaviour
     private const float velX = 0;
 
     private Rigidbody2D rb;
-    public float velY;
+    private float velY = -5f;
 
     private void Start()
     {
