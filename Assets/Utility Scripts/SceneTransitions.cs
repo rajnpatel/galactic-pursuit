@@ -7,7 +7,6 @@ public class SceneTransitions : MonoBehaviour
     public string currentScene;
     public string sceneName;
     public Animator transitionAnim;
-
     private void Update()
     {
         if (Input.GetMouseButton(0) && currentScene == "Main Menu" || Input.GetMouseButton(0) && currentScene == "Game Over")
@@ -28,6 +27,10 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         ShipMovement.movementDisabled = false;
         ShipMovement.initialMove = true;
+        ShipMovement.level1Transition = false;
+        ShipMovement.level1EndMovement = true;
+        ShipMovement.columnPosition = 3;
+        ShipMovement.movingToCenter = true;
         ShipShoot.canShoot = true;
         ShipShoot.canFire = false;
         ShipShoot.weapon1 = true;
@@ -37,11 +40,11 @@ public class SceneTransitions : MonoBehaviour
         Ship.shield = false;
         Ship.hasDied = false;
         Ship.shipHealth = 3;
-        ShipMovement.columnPosition = 3;
         Lives.lives = 3;
         Lives.liveTwoRespawn = true;
         Lives.liveOneRespawn = true;
         Level1EnemyHurt.level1Enemies = 73;
+        Level2EnemyHurt.level2Enemies = 76;
     }
 
     private IEnumerator LoadLevel2()

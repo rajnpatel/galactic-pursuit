@@ -404,7 +404,7 @@ RectTransform:
   - {fileID: 276820794}
   - {fileID: 606884923}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -884,6 +884,8 @@ MonoBehaviour:
   level2EnemyRow4: {fileID: 3335601755974108911, guid: e708a8def7f075a4584e6c1b6ad9351d,
     type: 3}
   boss: {fileID: 8698124949493572222, guid: 5fb0583fdb98943af9a483aa589a925f, type: 3}
+  bossTwin: {fileID: 6665245923888242356, guid: 07ab3a0b64e526a4bb53770514a3f7c2,
+    type: 3}
   canInstantiateWave2: 1
   canInstantiateWave3: 1
   canInstantiateWave4: 1
@@ -1579,7 +1581,7 @@ PrefabInstance:
     - target: {fileID: 7222704639961681582, guid: a97f52e8e90acd64883c0fc7baf3d842,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7222704639961681582, guid: a97f52e8e90acd64883c0fc7baf3d842,
         type: 3}
@@ -1787,7 +1789,7 @@ PrefabInstance:
     - target: {fileID: 3067496905262138884, guid: 4a1509c83e79d4692b4d160ee4a10b1f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3067496905262138884, guid: 4a1509c83e79d4692b4d160ee4a10b1f,
         type: 3}
@@ -2830,7 +2832,7 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

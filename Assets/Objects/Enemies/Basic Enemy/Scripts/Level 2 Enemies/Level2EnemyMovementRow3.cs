@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level2EnemyMovementRow2 : MonoBehaviour
+public class Level2EnemyMovementRow3 : MonoBehaviour
 {
     private const float movementSpeed = 1f;
     private Vector2 position;
+
     //private Direction shipDirection;
     private readonly float speed = 7f;
     private float rotationSpeed = 4f;
@@ -16,11 +17,10 @@ public class Level2EnemyMovementRow2 : MonoBehaviour
     private Vector2 topRightCorner;
     private Vector2 bottomRightCorner;
     public bool settingPosition = true;
-
     private void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .7f, 1))).y;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.775f, 1))).y;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
@@ -29,7 +29,7 @@ public class Level2EnemyMovementRow2 : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .7f, 1))).y && settingPosition == true)
+        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y && settingPosition == true)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
@@ -64,7 +64,7 @@ public class Level2EnemyMovementRow2 : MonoBehaviour
     }
     public IEnumerator delayRotation()
     {
-        yield return new WaitForSeconds(.75f);
+        yield return new WaitForSeconds(1f);
         settingPosition = false;
     }
 }

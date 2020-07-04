@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad965274b0077b41b4847760ac58034, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyLaser: {fileID: 7162818345560686426, guid: b5d50e2c98a0646baa9032c3f2efad2f,
+  EnemyLaser: {fileID: 7162818345560686426, guid: b58087853b17a6544be6c1cae2068b51,
     type: 3}
 --- !u!212 &3074379427458818041
 SpriteRenderer:
@@ -591,5 +591,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb4009de65be52438bc26c26cdacee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 5
   settingPosition: 1

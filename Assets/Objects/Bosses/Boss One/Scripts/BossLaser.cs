@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 
-public class Level2EnemyLaser : MonoBehaviour
+public class BossLaser : MonoBehaviour
 {
     private const float velX = 0;
 
     private Rigidbody2D rb;
-    private float velY = -6f;
+    private float velY;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (Level1EnemyHurt.level1Enemies == 1)
+        {
+            velY = -7f;
+        }
+        else if (Level2EnemyHurt.level2Enemies == 1)
+        {
+            velY = -8f;
+        }
     }
 
     private void Update()

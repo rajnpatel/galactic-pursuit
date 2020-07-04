@@ -26,10 +26,10 @@ public class EnemyMovementRow3Outer : MonoBehaviour
     {
         position = transform.position;
         target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y;
-        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
-        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
+        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
+        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
     }
 
     private void Update()
