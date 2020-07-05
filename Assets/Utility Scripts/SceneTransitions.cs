@@ -45,6 +45,7 @@ public class SceneTransitions : MonoBehaviour
         Lives.liveOneRespawn = true;
         Level1EnemyHurt.level1Enemies = 73;
         Level2EnemyHurt.level2Enemies = 76;
+        BossMovement.settingPosition = true;
     }
 
     private IEnumerator LoadLevel2()
