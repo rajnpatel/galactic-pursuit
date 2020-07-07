@@ -16,6 +16,7 @@ public class SceneTransitions : MonoBehaviour
 
         if (ShipMovement.transitionToLevel2)
         {
+            ShipMovement.transitionToLevel2 = false;
             StartCoroutine(LoadLevel2());
         }
     }
@@ -55,7 +56,6 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Ship.hasDied = false;
         ShipMovement.movementDisabled = false;
-        ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)
