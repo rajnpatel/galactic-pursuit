@@ -29,7 +29,7 @@ public class Level2EnemyMovementRow3 : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y && settingPosition == true)
+        if (position.y > target.y && settingPosition == true)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;

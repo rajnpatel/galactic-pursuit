@@ -22,15 +22,15 @@ public class Level2EnemyMovementRow4 : MonoBehaviour
     {
         position = transform.position;
         target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .85f, 1))).y;
-        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.105f, 0f, 1))).x;
+        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
-        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.905f, 0f, 1))).x;
+        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
     }
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .85f, 1))).y)
+        if (position.y > target.y)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;

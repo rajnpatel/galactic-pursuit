@@ -3,19 +3,25 @@ using UnityEngine;
 
 public class AsteroidAppear : MonoBehaviour
 {
-    private static readonly float[] xCoordinates = { -3.0f, -1.5f, 0.0f, 1.5f, 3.0f };
     public GameObject Asteroid;
     private bool canAppear = true;
     private float RandomNum;
-
     private void Update()
     {
+        float[] xCoordinates = {
+
+    (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x,
+    (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x,
+    (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x,
+    (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x,
+    (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x
+
+    };
         RandomNum = xCoordinates[Random.Range(0, 4)];
-        if (!canAppear || ShipMovement.movementDisabled) return;
+        if (!canAppear || ShipMovement.movementDisabled || Level1EnemyHurt.level1Enemies > 61) return;
         canAppear = false;
         StartCoroutine(NoAppear());
     }
-
     private IEnumerator NoAppear()
     {
         yield return new WaitForSeconds((float)RandomHandler.AsteroidRandomAppear());

@@ -17,15 +17,8 @@ public class Lives : MonoBehaviour
     public static bool respawning = false;
     void Start()
     {
-        if (.5 <= Camera.main.aspect)
-        {
-            target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.06f, 1))).y);
-        }
-        else
-        {
-            target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0, 1))).y);
-        }
         target.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0, 1))).x);
+        target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0, 0.06f, 1))).y);
 
         if (lives == 3)
         {
@@ -79,6 +72,7 @@ public class Lives : MonoBehaviour
         Ship.shield = false;
         ShipMovement.movementDisabled = false;
         ShipShoot.allWeaponsDisabled = false;
+        target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0.505f, 0.06f, 1))).y);
         Instantiate(ship, new Vector3(target.x, target.y), transform.rotation);
         respawning = true;
     }

@@ -36,18 +36,10 @@ public class ShipMovement : MonoBehaviour
 
     private void Start()
     {
-        levelClear.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 1.5f, 1))).x);
+        levelClear.x = ((Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x);
         levelClear.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.5f, 1))).y);
-        movementDistance = Screen.width / (Screen.width / 1.5f);
         position = transform.position;
-        if (.5 <= Camera.main.aspect)
-        {
-            target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.06f, 1))).y);
-        }
-        else
-        {
-            target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 0, 1))).y);
-        }
+        target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0, 0.06f, 1))).y);
     }
 
     private void Update()
@@ -69,7 +61,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 15f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)
@@ -111,6 +103,8 @@ public class ShipMovement : MonoBehaviour
 
         if (position.y != target.y && initialMove)
         {
+            //target.y has to be declared again or the positioning is not consistent among multiple resolutions for some reason
+            target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0, 0.06f, 1))).y);
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * 7f);
             transform.position = position;
             if (position.y == target.y)
@@ -156,10 +150,34 @@ public class ShipMovement : MonoBehaviour
                 !locked && columnPosition != 1
             )
             {
-                Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
-                target.x = transform.position.x - movementDistance;
-                locked = true;
-                columnPosition--;
+                if (columnPosition == 5)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 4)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 3)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 2)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
             }
 
             position.x =
@@ -167,6 +185,7 @@ public class ShipMovement : MonoBehaviour
                     target.x,
                     Time.deltaTime * speed);
             transform.position = position;
+
             if (transform.position.x == target.x)
             {
                 moveLeft = false;
@@ -180,16 +199,41 @@ public class ShipMovement : MonoBehaviour
             canDoAction = false;
             if (!locked && columnPosition != 5)
             {
-                Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
-                target.x = transform.position.x + movementDistance;
-                locked = true;
-                columnPosition++;
+                if (columnPosition == 1)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 2)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 3)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 4)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
             }
 
             position.x = Mathf.MoveTowards(transform.position.x,
                 target.x,
                 Time.deltaTime * speed);
             transform.position = position;
+
             if (transform.position.x == target.x)
             {
                 moveRight = false;
@@ -264,7 +308,6 @@ public class ShipMovement : MonoBehaviour
 
     void OnSwipeLeft()
     {
-        Debug.Log("Swipe Left");
         moveLeft = true;
         if (moveLeft)
         {
@@ -273,12 +316,34 @@ public class ShipMovement : MonoBehaviour
             if (
                 !locked && columnPosition != 1
             )
-            {
-                Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
-                target.x = transform.position.x - movementDistance;
-                locked = true;
-                columnPosition--;
-            }
+                if (columnPosition == 5)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 4)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 3)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
+                else if (columnPosition == 2)
+                {
+                    Instantiate(MovingLeftWind, new Vector3(transform.position.x + 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition--;
+                }
 
             position.x =
                 Mathf.MoveTowards(transform.position.x,
@@ -296,17 +361,40 @@ public class ShipMovement : MonoBehaviour
 
     void OnSwipeRight()
     {
-        Debug.Log("Swipe Right");
         moveRight = true;
         if (moveRight)
         {
             canDoAction = false;
             if (!locked && columnPosition != 5)
             {
-                Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
-                target.x = transform.position.x + movementDistance;
-                locked = true;
-                columnPosition++;
+                if (columnPosition == 1)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.3f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 2)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 3)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
+                else if (columnPosition == 4)
+                {
+                    Instantiate(MovingRightWind, new Vector3(transform.position.x - 0.5f, transform.position.y), transform.rotation);
+                    target.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
+                    locked = true;
+                    columnPosition++;
+                }
             }
 
             position.x = Mathf.MoveTowards(transform.position.x,
