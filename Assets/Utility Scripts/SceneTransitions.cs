@@ -16,6 +16,7 @@ public class SceneTransitions : MonoBehaviour
 
         if (ShipMovement.transitionToLevel2)
         {
+            ShipMovement.transitionToLevel2 = false;
             StartCoroutine(LoadLevel2());
         }
     }
@@ -45,6 +46,7 @@ public class SceneTransitions : MonoBehaviour
         Lives.liveOneRespawn = true;
         Level1EnemyHurt.level1Enemies = 73;
         Level2EnemyHurt.level2Enemies = 76;
+        BossMovement.settingPosition = true;
     }
 
     private IEnumerator LoadLevel2()
@@ -54,7 +56,6 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Ship.hasDied = false;
         ShipMovement.movementDisabled = false;
-        ShipMovement.transitionToLevel2 = false;
         ShipMovement.level1EndMovement = true;
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)

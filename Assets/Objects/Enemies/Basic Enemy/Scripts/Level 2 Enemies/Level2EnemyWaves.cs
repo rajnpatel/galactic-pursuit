@@ -163,7 +163,6 @@ public class Level2EnemyWaves : MonoBehaviour
 
     public IEnumerator instantiateEnemiesWave3()
     {
-
         yield return new WaitForSeconds(1.0f);
 
         float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.10f, 0f, 1))).x;
@@ -282,8 +281,8 @@ public class Level2EnemyWaves : MonoBehaviour
     public IEnumerator instantiateBoss()
     {
         yield return new WaitForSeconds(1.0f);
-        float xCoordinate1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.2f, 0f, 1))).x;
-        float xCoordinate2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.8f, 0f, 1))).x;
+        float xCoordinate1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.15f, 0f, 1))).x;
+        float xCoordinate2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.85f, 0f, 1))).x;
         float yCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0, 1.2f, 0))).y;
         Vector2 spawnPosition1 = new Vector2(xCoordinate1, yCoordinate);
         Vector2 spawnPosition2 = new Vector2(xCoordinate2, yCoordinate);

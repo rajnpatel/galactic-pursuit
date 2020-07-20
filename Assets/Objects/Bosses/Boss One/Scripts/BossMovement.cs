@@ -26,7 +26,7 @@ public class BossMovement : MonoBehaviour
 
     void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y && settingPosition)
+        if (position.y > target.y && settingPosition)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;

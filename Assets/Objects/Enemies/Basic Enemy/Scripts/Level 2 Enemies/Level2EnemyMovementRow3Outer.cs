@@ -28,13 +28,13 @@ public class Level2EnemyMovementRow3Outer : MonoBehaviour
         target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y;
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
-        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.10f, 0f, 1))).x;
-        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.90f, 0f, 1))).x;
+        bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
+        topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
     }
 
     private void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y && settingPosition == true)
+        if (position.y > target.y && settingPosition == true)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
