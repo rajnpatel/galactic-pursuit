@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7396005016729791649}
   - component: {fileID: 8353935662930035247}
-  - component: {fileID: 3429731920836584086}
   - component: {fileID: 4539907692518991050}
   - component: {fileID: -4698167875237371780}
+  - component: {fileID: -2242249524532925041}
   - component: {fileID: 6674136763821295928}
   - component: {fileID: 3026506111128562550}
   - component: {fileID: 5261924638820765831}
@@ -90,25 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3429731920836584086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6665245923888242356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ee87b5ece9383f49a2c3fe263714f7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossHealth: 100
-  bossExplosion: {fileID: 8340905817803320112, guid: 553349a4397e61a4abde35501bc100d7,
-    type: 3}
-  enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
-    type: 3}
-  boss: {fileID: 21300000, guid: 2687a7ddac1a6474286f813236c7941d, type: 3}
-  bossHurt: {fileID: 21300000, guid: 84c8320edeb238243a5ca2a3f4c4d802, type: 3}
 --- !u!114 &4539907692518991050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +118,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossLaser: {fileID: 6973008065718767720, guid: 3ce0d87b0d634e64db376c2d72ba16ff,
     type: 3}
+--- !u!114 &-2242249524532925041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6665245923888242356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ee87b5ece9383f49a2c3fe263714f7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossHealth: 100
+  bossExplosion: {fileID: 8340905817803320112, guid: 553349a4397e61a4abde35501bc100d7,
+    type: 3}
+  enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
+    type: 3}
+  boss: {fileID: 21300000, guid: 2687a7ddac1a6474286f813236c7941d, type: 3}
+  bossHurt: {fileID: 21300000, guid: 84c8320edeb238243a5ca2a3f4c4d802, type: 3}
 --- !u!61 &6674136763821295928
 BoxCollider2D:
   m_ObjectHideFlags: 0

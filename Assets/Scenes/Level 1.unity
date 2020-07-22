@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604d0358bc1c450ab3675ab82041a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScene: 
+  currentScene: Level 1
   sceneName: Level 2
   transitionAnim: {fileID: 554563980}
 --- !u!20 &930770487 stripped
