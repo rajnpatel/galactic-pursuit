@@ -2592,7 +2592,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1239825822}
   - component: {fileID: 1239825821}
-  - component: {fileID: 1239825820}
   - component: {fileID: 1239825819}
   - component: {fileID: 1239825818}
   m_Layer: 0
@@ -2614,8 +2613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604d0358bc1c450ab3675ab82041a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentScene: 
-  sceneName: Level 2
+  currentScene: Level 3
+  sceneName: Level 3
   transitionAnim: {fileID: 1414150548}
 --- !u!114 &1239825819
 MonoBehaviour:
@@ -2632,35 +2631,6 @@ MonoBehaviour:
   shield: {fileID: 578401181782146303, guid: 576b2d73a097c440d81836cb292ff239, type: 3}
   shieldNormal: {fileID: 0}
   shieldHurt: {fileID: 0}
---- !u!114 &1239825820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1239825817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297bb58bac4cae74998b921b72523465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level1EnemyRow1: {fileID: 6883823292704736388, guid: f8a5cd7378ed4564d832c8acc7ddec71,
-    type: 3}
-  level1EnemyRow2: {fileID: 4226855442906009500, guid: 5990ee00d9c0fc84b9dca7009704069a,
-    type: 3}
-  level1EnemyRow2Outer: {fileID: 8518764547795731761, guid: c36ef54b93552b446b6bf76a0c2ed46e,
-    type: 3}
-  level1EnemyRow3Outer: {fileID: 1023843246595149044, guid: eb7711b85f31bcb4199f3defd8d0592b,
-    type: 3}
-  level1EnemyRow3: {fileID: 4932806002715344232, guid: 088e76e33bcd5b1408a8617b10afabb5,
-    type: 3}
-  level1EnemyRow4: {fileID: 3335601755974108911, guid: 82fda44025c30414bb39cb0659b5db60,
-    type: 3}
-  boss: {fileID: 8698124949493572222, guid: 5fb0583fdb98943af9a483aa589a925f, type: 3}
-  canInstantiateWave2: 1
-  canInstantiateWave3: 1
-  canInstantiateWave4: 1
-  canInstantiateboss: 1
 --- !u!114 &1239825821
 MonoBehaviour:
   m_ObjectHideFlags: 0

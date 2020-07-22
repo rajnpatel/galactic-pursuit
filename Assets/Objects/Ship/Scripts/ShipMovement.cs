@@ -31,6 +31,9 @@ public class ShipMovement : MonoBehaviour
     public bool movingShip = false;
     public static bool movingToCenter = true;
     public static bool transitionToLevel2 = false;
+    public static bool level2Transition = false;
+    public static bool level2EndMovement = true;
+    public static bool transitionToLevel3 = false;
     public static bool initialMove = true;
     public static bool shipCanMoveUp = false;
 
@@ -46,7 +49,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (level1Transition && level1EndMovement)
         {
-            StartCoroutine(disableShipMovement());
+            StartCoroutine(disableShipMovementForLevel2());
         }
         if (!level1EndMovement)
         {
@@ -69,6 +72,36 @@ public class ShipMovement : MonoBehaviour
                 shipCanMoveUp = false;
                 movingToCenter = true;
                 transitionToLevel2 = true;
+                level1EndMovement = true;
+            }
+        }
+
+        if (level2Transition && level2EndMovement)
+        {
+            StartCoroutine(disableShipMovementForLevel3());
+        }
+        if (!level2EndMovement)
+        {
+            transform.position = position;
+            if (position.x != levelClear.x && movingToCenter)
+            {
+                position.x = Mathf.MoveTowards(transform.position.x, levelClear.x, Time.deltaTime * 3f);
+                transform.position = position;
+            }
+
+            if (position.x == levelClear.x && shipCanMoveUp)
+            {
+                columnPosition = 3;
+                movingToCenter = false;
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
+                transform.position = position;
+            }
+            if (position.y == levelClear.y && movementDisabled)
+            {
+                shipCanMoveUp = false;
+                movingToCenter = true;
+                transitionToLevel3 = true;
+                level2EndMovement = true;
             }
         }
 
@@ -409,12 +442,21 @@ public class ShipMovement : MonoBehaviour
             }
         }
     }
-    public IEnumerator disableShipMovement()
+    public IEnumerator disableShipMovementForLevel2()
     {
         yield return new WaitForSeconds(2.0f);
         shipCanMoveUp = true;
         movementDisabled = true;
         level1EndMovement = false;
         level1Transition = false;
+    }
+    public IEnumerator disableShipMovementForLevel3()
+    {
+        yield return new WaitForSeconds(2.0f);
+        movingToCenter = true;
+        shipCanMoveUp = true;
+        movementDisabled = true;
+        level2EndMovement = false;
+        level2Transition = false;
     }
 }

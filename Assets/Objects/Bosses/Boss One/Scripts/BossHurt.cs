@@ -34,13 +34,21 @@ public class BossHurt : MonoBehaviour
             if (bossHealth <= 0)
             {
                 Destroy(gameObject);
-                Level1EnemyHurt.level1Enemies--;
                 AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
-                if (Level1EnemyHurt.level1Enemies == 0)
+                if (Level1EnemyHurt.level1Enemies == 1)
                 {
+                    Level1EnemyHurt.level1Enemies--;
                     ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
                 }
             }
         }
@@ -56,10 +64,18 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
-                Level1EnemyHurt.level1Enemies--;
-                if (Level1EnemyHurt.level1Enemies == 0)
+                if (Level1EnemyHurt.level1Enemies == 1)
                 {
+                    Level1EnemyHurt.level1Enemies--;
                     ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
                 }
             }
         }
@@ -74,10 +90,18 @@ public class BossHurt : MonoBehaviour
                 AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
-                Level1EnemyHurt.level1Enemies--;
-                if (Level1EnemyHurt.level1Enemies == 0)
+                if (Level1EnemyHurt.level1Enemies == 1)
                 {
+                    Level1EnemyHurt.level1Enemies--;
                     ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
                 }
             }
         }

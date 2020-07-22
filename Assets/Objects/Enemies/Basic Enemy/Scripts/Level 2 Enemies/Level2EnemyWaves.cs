@@ -23,22 +23,22 @@ public class Level2EnemyWaves : MonoBehaviour
 
     void Update()
     {
-        if (Level2EnemyHurt.level2Enemies == 61 && canInstantiateWave2)
+        if (Level2EnemyHurt.level2Enemies == 62 && canInstantiateWave2)
         {
             canInstantiateWave2 = false;
             StartCoroutine(instantiateEnemiesWave2());
         }
-        if (Level2EnemyHurt.level2Enemies == 41 && canInstantiateWave3)
+        if (Level2EnemyHurt.level2Enemies == 42 && canInstantiateWave3)
         {
             canInstantiateWave3 = false;
             StartCoroutine(instantiateEnemiesWave3());
         }
-        if (Level2EnemyHurt.level2Enemies == 21 && canInstantiateWave4)
+        if (Level2EnemyHurt.level2Enemies == 22 && canInstantiateWave4)
         {
             canInstantiateWave4 = false;
             StartCoroutine(instantiateEnemiesWave4());
         }
-        if (Level2EnemyHurt.level2Enemies == 1 && canInstantiateboss)
+        if (Level2EnemyHurt.level2Enemies == 2 && canInstantiateboss)
         {
             StartCoroutine(instantiateBoss());
             canInstantiateboss = false;

@@ -14,7 +14,7 @@ public class BossLaser : MonoBehaviour
         {
             velY = -7f;
         }
-        else if (Level2EnemyHurt.level2Enemies == 1)
+        else if (Level2EnemyHurt.level2Enemies <= 2)
         {
             velY = -8f;
         }
