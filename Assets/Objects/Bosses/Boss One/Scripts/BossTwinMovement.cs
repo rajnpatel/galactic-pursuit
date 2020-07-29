@@ -22,13 +22,13 @@ public class BossTwinMovement : MonoBehaviour
     void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .675f, 1))).y;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .725f, 1))).y;
 
     }
 
     void Update()
     {
-        if (position.y > (Camera.main.ViewportToWorldPoint(new Vector3(0f, .675f, 1))).y && settingPosition)
+        if (position.y > target.y && settingPosition)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;

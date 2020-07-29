@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovementRow4 : MonoBehaviour
+public class Level3EnemyMovementRow4 : MonoBehaviour
 {
     private Vector2 position;
     private readonly float speed = 7f;
-    private float rotationSpeed = 4f;
+    private float rotationSpeed = 6f;
     private Vector2 target;
     private Vector2 bottomLeftCorner;
     private Vector2 topLeftCorner;
@@ -22,6 +22,7 @@ public class EnemyMovementRow4 : MonoBehaviour
         topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
+        StartCoroutine(delayRotation());
     }
 
     private void Update()
@@ -31,12 +32,19 @@ public class EnemyMovementRow4 : MonoBehaviour
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
         }
-        if (Level1EnemyHurt.level1Enemies <= 21)
+        /*if (position.y == target.y && settingPosition)
         {
-            if (position.y == target.y && settingPosition)
+            if (Level3EnemyHurt.level3Enemies > 66)
             {
                 StartCoroutine("delayRotation");
             }
+            else
+            {
+                StartCoroutine("delayRotation2");
+            }
+        }*/
+        if (Level3EnemyHurt.level3Enemies < 66)
+        {
             if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && settingPosition == false)
             {
                 position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
@@ -59,9 +67,16 @@ public class EnemyMovementRow4 : MonoBehaviour
             }
         }
     }
+
     public IEnumerator delayRotation()
     {
-        yield return new WaitForSeconds(1.3f);
+        //yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(2f);
+        settingPosition = false;
+    }
+    public IEnumerator delayRotation2()
+    {
+        yield return new WaitForSeconds(1.6f);
         settingPosition = false;
     }
 }

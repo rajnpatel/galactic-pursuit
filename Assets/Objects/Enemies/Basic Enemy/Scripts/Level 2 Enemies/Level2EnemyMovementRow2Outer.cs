@@ -12,7 +12,7 @@ public class Level2EnemyMovementRow2Outer : MonoBehaviour
     //private Direction shipDirection;
 
     private readonly float speed = 7f;
-    private float rotationSpeed = 4f;
+    private float rotationSpeed = 5f;
     private Vector3 startPosition;
 
     private Vector2 target;
@@ -34,12 +34,12 @@ public class Level2EnemyMovementRow2Outer : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > target.y && settingPosition == true)
+        if (position.y > target.y && settingPosition)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
         }
-        if (position.y == target.y)
+        if (position.y == target.y && settingPosition)
         {
             StartCoroutine("delayRotation");
         }
