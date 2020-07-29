@@ -21,7 +21,7 @@ public class BossMovement : MonoBehaviour
     void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .775f, 1))).y;
+        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .825f, 1))).y;
     }
 
     void Update()

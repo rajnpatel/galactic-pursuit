@@ -216,7 +216,7 @@ public class Level1EnemyWaves : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         float xCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0f, 1))).x;
-        float yCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0, 1.2f, 0))).y;
+        float yCoordinate = (Camera.main.ViewportToWorldPoint(new Vector3(0, 1.3f, 0))).y;
         Vector2 spawnPosition = new Vector2(xCoordinate, yCoordinate);
         Instantiate(boss, spawnPosition, transform.rotation);
         //rememeber when instantiating new instances of boss to change BossMovement.settingPosition to true

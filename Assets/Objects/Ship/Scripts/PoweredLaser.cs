@@ -20,7 +20,8 @@ public class PoweredLaser : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("BasicEnemy")
-        || col.gameObject.CompareTag("Asteroid")) Destroy(gameObject);
+        || col.gameObject.CompareTag("Asteroid") || col.gameObject.CompareTag("EnemyShield"))
+            Destroy(gameObject);
     }
 
     private void OnBecameInvisible()

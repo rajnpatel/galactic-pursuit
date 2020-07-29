@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 434596049737432073}
-  - component: {fileID: 7375596776885798568}
   - component: {fileID: 2726392090312269222}
   - component: {fileID: 3883697624098243158}
   - component: {fileID: -4940859335716004276}
   - component: {fileID: 2196109480328505317}
+  - component: {fileID: 5920776169036392235}
   m_Layer: 0
   m_Name: Level3EnemyLaser
   m_TagString: EnemyProjectile
@@ -35,19 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7375596776885798568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162818345560686426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbcbc2d52472c499eb33fa7663a9ad7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velY: -9
 --- !u!212 &2726392090312269222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -165,3 +152,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08373928, y: 0.08396411}
   m_EdgeRadius: 0
+--- !u!114 &5920776169036392235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7162818345560686426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0881ae178546fc4483f1a38122a90e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

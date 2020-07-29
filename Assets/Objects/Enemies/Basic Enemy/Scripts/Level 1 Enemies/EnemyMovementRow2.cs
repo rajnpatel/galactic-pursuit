@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class EnemyMovementRow2 : MonoBehaviour
 {
-    private const float movementSpeed = 1f;
-    public int enemyHealth = 5;
-
     private Vector2 position;
-
-    //private Direction shipDirection;
-
     private readonly float speed = 7f;
-
-    private Vector3 startPosition;
-
     private Vector2 target;
 
     private void Start()
