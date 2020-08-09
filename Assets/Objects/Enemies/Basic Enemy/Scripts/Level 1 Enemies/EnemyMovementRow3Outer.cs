@@ -26,34 +26,35 @@ public class EnemyMovementRow3Outer : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > target.y && settingPosition)
+        if (position.y >= target.y && settingPosition)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
+            if (position.y == target.y && settingPosition)
+            {
+                StartCoroutine("delayRotation");
+            }
         }
-        if (position.y == target.y && settingPosition)
+        if (!settingPosition)
         {
-            StartCoroutine("delayRotation");
-        }
-        if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && settingPosition == false)
-        {
-            position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
             transform.position = position;
-        }
-        if (position.x == bottomLeftCorner.x && settingPosition == false)
-        {
-            position.y = Mathf.MoveTowards(transform.position.y, topLeftCorner.y, Time.deltaTime * rotationSpeed);
-            transform.position = position;
-        }
-        if (position.y == topLeftCorner.y && settingPosition == false)
-        {
-            position.x = Mathf.MoveTowards(transform.position.x, topRightCorner.x, Time.deltaTime * rotationSpeed);
-            transform.position = position;
-        }
-        if (position.x == topRightCorner.x && settingPosition == false)
-        {
-            position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
-            transform.position = position;
+
+            if (position.y == bottomRightCorner.y)
+            {
+                position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
+            }
+            if (position.x == bottomLeftCorner.x)
+            {
+                position.y = Mathf.MoveTowards(transform.position.y, topLeftCorner.y, Time.deltaTime * rotationSpeed);
+            }
+            if (position.y == topLeftCorner.y)
+            {
+                position.x = Mathf.MoveTowards(transform.position.x, topRightCorner.x, Time.deltaTime * rotationSpeed);
+            }
+            if (position.x == topRightCorner.x)
+            {
+                position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
+            }
         }
     }
     public IEnumerator delayRotation()

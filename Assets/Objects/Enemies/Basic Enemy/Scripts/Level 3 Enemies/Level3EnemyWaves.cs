@@ -16,6 +16,7 @@ public class Level3EnemyWaves : MonoBehaviour
     public bool canInstantiateWave2 = true;
     public bool canInstantiateWave3 = true;
     public bool canInstantiateWave4 = true;
+    public bool canInstantiateWave4a = true;
     public bool canInstantiateboss = true;
     void Start()
     {
@@ -24,26 +25,32 @@ public class Level3EnemyWaves : MonoBehaviour
 
     void Update()
     {
-        if (Level3EnemyHurt.level3Enemies == 65 && canInstantiateWave2)
+        Debug.Log(Level3EnemyHurt.level3Enemies);
+        if (Level3EnemyHurt.level3Enemies == 72 && canInstantiateWave2)
         {
             canInstantiateWave2 = false;
             StartCoroutine(instantiateEnemiesWave2());
         }
-        if (Level3EnemyHurt.level3Enemies == 45 && canInstantiateWave3)
+        if (Level3EnemyHurt.level3Enemies == 52 && canInstantiateWave3)
         {
             EnemyShield.shield = true;
             EnemyShield.triggered = false;
             canInstantiateWave3 = false;
             StartCoroutine(instantiateEnemiesWave3());
         }
-        if (Level3EnemyHurt.level3Enemies == 25 && canInstantiateWave4)
+        if (Level3EnemyHurt.level3Enemies == 32 && canInstantiateWave4)
         {
             EnemyShield.shield = true;
             EnemyShield.relocating = false;
             canInstantiateWave4 = false;
             StartCoroutine(instantiateEnemiesWave4());
         }
-        if (Level3EnemyHurt.level3Enemies == 2 && canInstantiateboss)
+        if (Level3EnemyHurt.level3Enemies < 32 && canInstantiateWave4a && !EnemyShield.shield)
+        {
+            canInstantiateWave4a = false;
+            StartCoroutine(instantiateEnemiesWave4a());
+        }
+        if (Level3EnemyHurt.level3Enemies == 8 && canInstantiateboss)
         {
             StartCoroutine(instantiateBoss());
             canInstantiateboss = false;
@@ -293,6 +300,42 @@ public class Level3EnemyWaves : MonoBehaviour
         Instantiate(enemyShield, spawnPosition21, transform.rotation);
     }
 
+    public IEnumerator instantiateEnemiesWave4a()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        float xCoordinateColumn1 = (Camera.main.ViewportToWorldPoint(new Vector3(0.10f, 0f, 1))).x;
+        float xCoordinateColumn2 = (Camera.main.ViewportToWorldPoint(new Vector3(0.30f, 0f, 1))).x;
+        float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.50f, 0f, 1))).x;
+        float xCoordinateColumn4 = (Camera.main.ViewportToWorldPoint(new Vector3(0.70f, 0f, 1))).x;
+        float xCoordinateColumn5 = (Camera.main.ViewportToWorldPoint(new Vector3(0.90f, 0f, 1))).x;
+
+        float yCoordinateRow1 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.35f, 1))).y;
+        float yCoordinateRow2 = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.275f, 1))).y;
+
+        Vector2 spawnPosition1 = new Vector2(xCoordinateColumn1, yCoordinateRow1);
+        Vector2 spawnPosition2 = new Vector2(xCoordinateColumn2, yCoordinateRow1);
+        Vector2 spawnPosition3 = new Vector2(xCoordinateColumn3, yCoordinateRow1);
+        Vector2 spawnPosition4 = new Vector2(xCoordinateColumn4, yCoordinateRow1);
+        Vector2 spawnPosition5 = new Vector2(xCoordinateColumn5, yCoordinateRow1);
+        Vector2 spawnPosition6 = new Vector2(xCoordinateColumn1, yCoordinateRow2);
+        Vector2 spawnPosition7 = new Vector2(xCoordinateColumn2, yCoordinateRow2);
+        Vector2 spawnPosition8 = new Vector2(xCoordinateColumn3, yCoordinateRow2);
+        Vector2 spawnPosition9 = new Vector2(xCoordinateColumn4, yCoordinateRow2);
+        Vector2 spawnPosition10 = new Vector2(xCoordinateColumn5, yCoordinateRow2);
+
+        Instantiate(level3EnemyRow1, spawnPosition1, transform.rotation);
+        Instantiate(level3EnemyRow1, spawnPosition2, transform.rotation);
+        Instantiate(level3EnemyRow1, spawnPosition3, transform.rotation);
+        Instantiate(level3EnemyRow1, spawnPosition4, transform.rotation);
+        Instantiate(level3EnemyRow1, spawnPosition5, transform.rotation);
+        Instantiate(level3EnemyRow4, spawnPosition6, transform.rotation);
+        Instantiate(level3EnemyRow4, spawnPosition7, transform.rotation);
+        Instantiate(level3EnemyRow4, spawnPosition8, transform.rotation);
+        Instantiate(level3EnemyRow4, spawnPosition9, transform.rotation);
+        Instantiate(level3EnemyRow4, spawnPosition10, transform.rotation);
+    }
+
     public IEnumerator instantiateBoss()
     {
         yield return new WaitForSeconds(1.0f);
@@ -302,6 +345,7 @@ public class Level3EnemyWaves : MonoBehaviour
         Vector2 spawnPosition1 = new Vector2(xCoordinate1, yCoordinate);
         Vector2 spawnPosition2 = new Vector2(xCoordinate2, yCoordinate);
         BossMovement.settingPosition = true;
+        BossTwinMovement.settingPosition = true;
         BossMovement.column2 = true;
         BossMovement.column3 = false;
         Instantiate(boss, spawnPosition1, transform.rotation);

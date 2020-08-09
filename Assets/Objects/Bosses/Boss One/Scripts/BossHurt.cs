@@ -50,6 +50,14 @@ public class BossHurt : MonoBehaviour
                         ShipMovement.level2Transition = true;
                     }
                 }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
+                    }
+                }
             }
         }
         if (col.gameObject.CompareTag("FireProjectile"))
@@ -77,6 +85,14 @@ public class BossHurt : MonoBehaviour
                         ShipMovement.level2Transition = true;
                     }
                 }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
+                    }
+                }
             }
         }
         if (col.gameObject.CompareTag("PoweredLaser"))
@@ -101,6 +117,14 @@ public class BossHurt : MonoBehaviour
                     if (Level2EnemyHurt.level2Enemies == 0)
                     {
                         ShipMovement.level2Transition = true;
+                    }
+                }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
                     }
                 }
             }

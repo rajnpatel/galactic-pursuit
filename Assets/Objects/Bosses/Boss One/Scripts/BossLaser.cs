@@ -18,6 +18,10 @@ public class BossLaser : MonoBehaviour
         {
             velY = -8f;
         }
+        else if (Level3EnemyHurt.level3Enemies <= 11)
+        {
+            velY = -9f;
+        }
     }
 
     private void Update()

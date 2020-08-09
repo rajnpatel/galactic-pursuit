@@ -17,7 +17,7 @@ public class EnemyMovementRow1 : MonoBehaviour
     private Vector2 topRightCorner;
     private Vector2 bottomRightCorner;
     public bool settingPosition = true;
-
+    public static int count = 0;
     private void Start()
     {
         position = transform.position;
@@ -30,39 +30,41 @@ public class EnemyMovementRow1 : MonoBehaviour
 
     private void Update()
     {
-        if (position.y > target.y && settingPosition == true)
+        if (position.y >= target.y && settingPosition)
         {
             position.y = Mathf.MoveTowards(transform.position.y, target.y, Time.deltaTime * speed);
             transform.position = position;
-        }
-        if (Level1EnemyHurt.level1Enemies <= 21)
-        {
-            if (position.y == target.y)
+            if (Level1EnemyHurt.level1Enemies <= 21)
             {
-                StartCoroutine("delayRotation");
+                if (position.y == target.y)
+                {
+                    StartCoroutine("delayRotation");
+                }
             }
-            if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && settingPosition == false)
+        }
+        if (Level1EnemyHurt.level1Enemies <= 21 && !settingPosition)
+        {
+            transform.position = position;
+
+            if (position.y == bottomRightCorner.y)
             {
                 position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
-                transform.position = position;
             }
-            if (position.x == bottomLeftCorner.x && settingPosition == false)
+            if (position.x == bottomLeftCorner.x)
             {
                 position.y = Mathf.MoveTowards(transform.position.y, topLeftCorner.y, Time.deltaTime * rotationSpeed);
-                transform.position = position;
             }
-            if (position.y == topLeftCorner.y && settingPosition == false)
+            if (position.y == topLeftCorner.y)
             {
                 position.x = Mathf.MoveTowards(transform.position.x, topRightCorner.x, Time.deltaTime * rotationSpeed);
-                transform.position = position;
             }
-            if (position.x == topRightCorner.x && settingPosition == false)
+            if (position.x == topRightCorner.x)
             {
                 position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
-                transform.position = position;
             }
         }
     }
+
     public IEnumerator delayRotation()
     {
         yield return new WaitForSeconds(.5f);

@@ -25,15 +25,18 @@ public class ShipMovement : MonoBehaviour
     public bool canMove = true;
     public static bool swipeToMove = false;
     public static bool taptoMove = true;
+    private Vector2 levelClear;
     public static bool level1Transition = false;
     public static bool level1EndMovement = true;
-    private Vector2 levelClear;
-    public bool movingShip = false;
-    public static bool movingToCenter = true;
     public static bool transitionToLevel2 = false;
     public static bool level2Transition = false;
     public static bool level2EndMovement = true;
     public static bool transitionToLevel3 = false;
+    public static bool endGameTransition = false;
+    public static bool endGameMovement = true;
+    public static bool transitionToEndGame = false;
+    public bool movingShip = false;
+    public static bool movingToCenter = true;
     public static bool initialMove = true;
     public static bool shipCanMoveUp = false;
 
@@ -102,6 +105,33 @@ public class ShipMovement : MonoBehaviour
                 movingToCenter = true;
                 transitionToLevel3 = true;
                 level2EndMovement = true;
+            }
+        }
+        if (endGameTransition && endGameMovement)
+        {
+            StartCoroutine(disableShipMovementForEndGame());
+        }
+        if (!endGameMovement)
+        {
+            transform.position = position;
+            if (position.x != levelClear.x && movingToCenter)
+            {
+                position.x = Mathf.MoveTowards(transform.position.x, levelClear.x, Time.deltaTime * 3f);
+                transform.position = position;
+            }
+            if (position.x == levelClear.x && shipCanMoveUp)
+            {
+                columnPosition = 3;
+                movingToCenter = false;
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
+                transform.position = position;
+            }
+            if (position.y == levelClear.y && movementDisabled)
+            {
+                shipCanMoveUp = false;
+                movingToCenter = true;
+                transitionToEndGame = true;
+                endGameMovement = true;
             }
         }
 
@@ -458,5 +488,15 @@ public class ShipMovement : MonoBehaviour
         movementDisabled = true;
         level2EndMovement = false;
         level2Transition = false;
+    }
+
+    public IEnumerator disableShipMovementForEndGame()
+    {
+        yield return new WaitForSeconds(2.0f);
+        movingToCenter = true;
+        shipCanMoveUp = true;
+        movementDisabled = true;
+        endGameMovement = false;
+        endGameTransition = false;
     }
 }

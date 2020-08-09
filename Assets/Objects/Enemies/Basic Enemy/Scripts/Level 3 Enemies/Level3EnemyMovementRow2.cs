@@ -15,8 +15,8 @@ public class Level3EnemyMovementRow2 : MonoBehaviour
     private Vector2 newTarget;
     private Vector2 initialX;
     public bool settingPosition = true;
-    private static bool initialOffScreenMove = true;
-    private static bool secondOffScreenMove = false;
+    public static bool initialOffScreenMove = true;
+    public static bool secondOffScreenMove = false;
     private bool returningToScreen = false;
     public bool canStartCoroutine = true;
     public bool relocatedTrigger = false;
@@ -32,9 +32,9 @@ public class Level3EnemyMovementRow2 : MonoBehaviour
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .7f, 1))).y;
 
-        newTarget.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .4f, 1))).y;
+        newTarget.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .375f, 1))).y;
         newTarget.x = (Camera.main.ViewportToWorldPoint(new Vector3(-0.5f, 0, 1))).x;
-        newTopCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .475f, 1))).y;
+        newTopCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .45f, 1))).y;
 
         initialOffScreenMove = true;
         secondOffScreenMove = false;

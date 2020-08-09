@@ -7,7 +7,7 @@ public class EnemyShield : MonoBehaviour
     private Vector2 position;
     private readonly float speed = 7f;
     private Vector2 target;
-    private int health = 100;
+    private int health = 150;
     public Sprite shieldNormal;
     public Sprite shieldHurt;
     public static bool shield = true;

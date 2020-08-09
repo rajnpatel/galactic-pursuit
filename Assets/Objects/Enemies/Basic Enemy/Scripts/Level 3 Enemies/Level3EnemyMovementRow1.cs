@@ -17,16 +17,38 @@ public class Level3EnemyMovementRow1 : MonoBehaviour
     private Vector2 topRightCorner;
     private Vector2 bottomRightCorner;
     public bool settingPosition = true;
+    private Vector2 initialX;
+    private Vector2 newTarget;
+    private bool settingXpos = true;
+    public bool rotatingTopScreen = false;
+    public static bool rotationEnabled = false;
 
+    private void Awake()
+    {
+        initialX.x = transform.position.x;
+    }
     private void Start()
     {
         position = transform.position;
-        target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
-        topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.85f, 1))).y;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
-        bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
-        StartCoroutine(delayRotation());
+
+        if (Level3EnemyHurt.level3Enemies > 31)
+        {
+            target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .625f, 1))).y;
+
+            topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .85f, 1))).y;
+            bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
+            StartCoroutine(delayRotation());
+        }
+        else
+        {
+            position.x = (Camera.main.ViewportToWorldPoint(new Vector3(-.5f, 0, 1))).x;
+            target.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .55f, 1))).y;
+            topLeftCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .55f, 1))).y;
+            bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .3f, 1))).y;
+        }
+
     }
 
     private void Update()
@@ -47,28 +69,65 @@ public class Level3EnemyMovementRow1 : MonoBehaviour
                 StartCoroutine("delayRotation2");
             }
         }*/
-        if (Level3EnemyHurt.level3Enemies < 66)
+        if (Level3EnemyHurt.level3Enemies < 73 && rotatingTopScreen)
         {
-            if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && settingPosition == false)
+            if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && !settingPosition)
             {
                 position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
                 transform.position = position;
             }
-            if (position.x == bottomLeftCorner.x && settingPosition == false)
+            if (position.x == bottomLeftCorner.x && !settingPosition)
             {
                 position.y = Mathf.MoveTowards(transform.position.y, topLeftCorner.y, Time.deltaTime * rotationSpeed);
                 transform.position = position;
             }
-            if (position.y == topLeftCorner.y && settingPosition == false)
+            if (position.y == topLeftCorner.y && !settingPosition)
             {
                 position.x = Mathf.MoveTowards(transform.position.x, topRightCorner.x, Time.deltaTime * rotationSpeed);
                 transform.position = position;
             }
-            if (position.x == topRightCorner.x && settingPosition == false)
+            if (position.x == topRightCorner.x && !settingPosition)
             {
                 position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
                 transform.position = position;
             }
+        }
+        if (Level3EnemyHurt.level3Enemies < 32 && !rotatingTopScreen)
+        {
+            if (position.y == target.y && settingXpos)
+            {
+                settingPosition = false;
+                position.x = Mathf.MoveTowards(transform.position.x, initialX.x, Time.deltaTime * speed);
+                transform.position = position;
+                if (position.x == initialX.x)
+                {
+                    settingXpos = false;
+                }
+            }
+            if (!settingXpos && !rotatingTopScreen && rotationEnabled)
+            {
+                if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && !settingPosition)
+                {
+                    position.x = Mathf.MoveTowards(transform.position.x, bottomLeftCorner.x, Time.deltaTime * rotationSpeed);
+                    transform.position = position;
+                }
+                if (position.x == bottomLeftCorner.x && !settingPosition)
+                {
+                    position.y = Mathf.MoveTowards(transform.position.y, topLeftCorner.y, Time.deltaTime * rotationSpeed);
+                    transform.position = position;
+                }
+                if (position.y == topLeftCorner.y && !settingPosition)
+                {
+                    position.x = Mathf.MoveTowards(transform.position.x, topRightCorner.x, Time.deltaTime * rotationSpeed);
+                    transform.position = position;
+                }
+                if (position.x == topRightCorner.x && !settingPosition)
+                {
+                    position.y = Mathf.MoveTowards(transform.position.y, bottomRightCorner.y, Time.deltaTime * rotationSpeed);
+                    transform.position = position;
+                }
+            }
+
         }
     }
 
@@ -77,11 +136,17 @@ public class Level3EnemyMovementRow1 : MonoBehaviour
         //yield return new WaitForSeconds(.5f);
         yield return new WaitForSeconds(2f);
         settingPosition = false;
+        rotatingTopScreen = true;
     }
     public IEnumerator delayRotation2()
     {
         yield return new WaitForSeconds(1.5f);
         settingPosition = false;
+    }
+    public IEnumerator canRotate()
+    {
+        yield return new WaitForSeconds(3f);
+        rotationEnabled = true;
     }
 }
 

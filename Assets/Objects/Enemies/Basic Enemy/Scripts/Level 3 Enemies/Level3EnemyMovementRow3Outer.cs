@@ -22,7 +22,7 @@ public class Level3EnemyMovementRow3Outer : MonoBehaviour
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
-        if (Level3EnemyHurt.level3Enemies < 66)
+        if (Level3EnemyHurt.level3Enemies < 73)
         {
             StartCoroutine(delayRotation());
         }
@@ -46,7 +46,7 @@ public class Level3EnemyMovementRow3Outer : MonoBehaviour
                 StartCoroutine("delayRotation2");
             }
         }*/
-        if (Level3EnemyHurt.level3Enemies < 66)
+        if (Level3EnemyHurt.level3Enemies < 73)
         {
             if (position.x >= bottomLeftCorner.x && position.y == bottomRightCorner.y && settingPosition == false)
             {
