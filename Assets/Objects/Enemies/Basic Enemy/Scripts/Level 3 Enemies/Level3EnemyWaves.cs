@@ -25,7 +25,6 @@ public class Level3EnemyWaves : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Level3EnemyHurt.level3Enemies);
         if (Level3EnemyHurt.level3Enemies == 72 && canInstantiateWave2)
         {
             canInstantiateWave2 = false;
@@ -346,8 +345,16 @@ public class Level3EnemyWaves : MonoBehaviour
         Vector2 spawnPosition2 = new Vector2(xCoordinate2, yCoordinate);
         BossMovement.settingPosition = true;
         BossTwinMovement.settingPosition = true;
+        BossMovement.column1 = false;
         BossMovement.column2 = true;
         BossMovement.column3 = false;
+        BossMovement.column4 = false;
+        BossMovement.column5 = false;
+        BossTwinMovement.twinColumn1 = false;
+        BossTwinMovement.twinColumn2 = false;
+        BossTwinMovement.twinColumn3 = false;
+        BossTwinMovement.twinColumn4 = true;
+        BossTwinMovement.twinColumn5 = false;
         Instantiate(boss, spawnPosition1, transform.rotation);
         Instantiate(bossTwin, spawnPosition2, transform.rotation);
         //rememeber when instantiating new instances of boss to change BossMovement.settingPosition to true

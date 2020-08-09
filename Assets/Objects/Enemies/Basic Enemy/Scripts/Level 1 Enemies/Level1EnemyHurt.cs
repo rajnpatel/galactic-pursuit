@@ -4,7 +4,7 @@ using UnityEngine;
 public class Level1EnemyHurt : MonoBehaviour
 {
     private AudioSource[] audioSources;
-    public int enemyHealth = 5;
+    private int enemyHealth = 5;
     public static int level1Enemies = 73;
     private AudioClip explosionSound;
     private AudioClip laserImpactSound;
