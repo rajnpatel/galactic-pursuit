@@ -67,7 +67,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)
@@ -96,7 +96,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)
@@ -123,7 +123,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 12.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)

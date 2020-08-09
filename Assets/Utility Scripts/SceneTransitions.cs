@@ -67,6 +67,8 @@ public class SceneTransitions : MonoBehaviour
         ShipMovement.level1EndMovement = true;
         ShipMovement.level2Transition = false;
         ShipMovement.level2EndMovement = true;
+        ShipMovement.endGameTransition = false;
+        ShipMovement.endGameMovement = true;
         ShipMovement.columnPosition = 3;
         ShipMovement.movingToCenter = true;
         ShipShoot.canShoot = true;
@@ -96,6 +98,11 @@ public class SceneTransitions : MonoBehaviour
         BossMovement.column3 = true;
         BossMovement.column4 = false;
         BossMovement.column5 = false;
+        BossTwinMovement.twinColumn1 = false;
+        BossTwinMovement.twinColumn2 = false;
+        BossTwinMovement.twinColumn3 = false;
+        BossTwinMovement.twinColumn4 = true;
+        BossTwinMovement.twinColumn5 = false;
         BossMovement.settingPosition = true;
         BossTwinMovement.settingPosition = true;
         EnemyShield.shield = true;
