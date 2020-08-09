@@ -52,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e091f28dfbf284826bdc0313f5aa3f3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 5
   settingPosition: 1
 --- !u!114 &-1464612142377828635
 MonoBehaviour:

@@ -14,9 +14,9 @@ public class Level3EnemyMovementRow3 : MonoBehaviour
     private Vector2 bottomRightCorner;
     private Vector2 newTarget;
     private Vector2 initialX;
-    private static bool initialOffScreenMove = true;
-    private static bool secondOffScreenMove = false;
-    private bool returningToScreen = false;
+    public static bool initialOffScreenMove = true;
+    public static bool secondOffScreenMove = false;
+    public bool returningToScreen = false;
     public bool canStartCoroutine = true;
     public bool relocatedTrigger = false;
     private Vector2 newBottomCorner;
@@ -34,9 +34,9 @@ public class Level3EnemyMovementRow3 : MonoBehaviour
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.7f, 0f, 1))).x;
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .7f, 1))).y;
 
-        newTarget.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .475f, 1))).y;
+        newTarget.y = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .45f, 1))).y;
         newTarget.x = (Camera.main.ViewportToWorldPoint(new Vector3(1.5f, 0, 1))).x;
-        newBottomCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .4f, 1))).y;
+        newBottomCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .375f, 1))).y;
 
         initialOffScreenMove = true;
         secondOffScreenMove = false;
@@ -158,8 +158,16 @@ public class Level3EnemyMovementRow3 : MonoBehaviour
         EnemyShield.shield = true;
         yield return new WaitForSeconds(0.2f);
         float xCoordinateColumn3 = (Camera.main.ViewportToWorldPoint(new Vector3(0.50f, 0f, 1))).x;
-        float yCoordinateRow2a = (Camera.main.ViewportToWorldPoint(new Vector3(0f, 0.4375f, 1))).y;
+        float yCoordinateRow2a = (Camera.main.ViewportToWorldPoint(new Vector3(0f, .4125f, 1))).y;
         Vector2 spawnPosition21 = new Vector2(xCoordinateColumn3, yCoordinateRow2a);
         Instantiate(enemyShield, spawnPosition21, transform.rotation);
+        StartCoroutine(canRotate());
+    }
+
+    public IEnumerator canRotate()
+    {
+        yield return new WaitForSeconds(1f);
+        Level3EnemyMovementRow1.rotationEnabled = true;
+        Level3EnemyMovementRow4.rotationEnabled = true;
     }
 }

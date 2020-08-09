@@ -27,7 +27,7 @@ public class Level3EnemyMovementRow2Outer : MonoBehaviour
         bottomRightCorner.y = (Camera.main.ViewportToWorldPoint(new Vector3(0, .625f, 1))).y;
         bottomLeftCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x;
         topRightCorner.x = (Camera.main.ViewportToWorldPoint(new Vector3(0.9f, 0f, 1))).x;
-        if (Level3EnemyHurt.level3Enemies < 66)
+        if (Level3EnemyHurt.level3Enemies < 73)
         {
             StartCoroutine(delayRotation());
         }
