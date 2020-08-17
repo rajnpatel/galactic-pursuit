@@ -25,9 +25,8 @@ public class Asteroid : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         audioSources = GetComponents<AudioSource>();
-
         laserImpactSound = audioSources[0].clip;
-        explosionSound = audioSources[1].clip;
+        audioSources[0].PlayOneShot(laserImpactSound);
     }
 
     private void Update()
@@ -55,9 +54,7 @@ public class Asteroid : MonoBehaviour
         }
         if (asteroidHealth <= 0)
         {
-            AudioSource.PlayClipAtPoint(laserImpactSound,
-                new Vector2(0, 0));
-            AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+            AsteroidAppear.asteroidSound = true;
             Destroy(gameObject);
 
             if (Random.Range(1, 5) == 1 && canAppear)

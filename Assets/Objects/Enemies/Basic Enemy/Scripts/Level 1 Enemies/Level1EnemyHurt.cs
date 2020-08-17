@@ -69,7 +69,6 @@ public class Level1EnemyHurt : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle2;
             }
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -81,11 +80,10 @@ public class Level1EnemyHurt : MonoBehaviour
             audioSources[0].PlayOneShot(laserImpactSound);
             if (enemyHealth <= 0)
             {
-                Destroy(gameObject);
+                EnemyExplosion.laserSound = true;
                 level1Enemies--;
-                AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
             }
         }
         if (col.gameObject.CompareTag("FireProjectile"))
@@ -96,9 +94,8 @@ public class Level1EnemyHurt : MonoBehaviour
             Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
             if (enemyHealth <= 0)
             {
+                EnemyExplosion.fireSound = true;
                 level1Enemies--;
-                AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }
@@ -110,9 +107,8 @@ public class Level1EnemyHurt : MonoBehaviour
             audioSources[3].PlayOneShot(poweredLaserImpactSound);
             if (enemyHealth <= 0)
             {
+                EnemyExplosion.poweredLaserSound = true;
                 level1Enemies--;
-                AudioSource.PlayClipAtPoint(poweredLaserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }

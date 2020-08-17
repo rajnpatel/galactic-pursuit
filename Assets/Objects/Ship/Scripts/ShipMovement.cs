@@ -70,9 +70,10 @@ public class ShipMovement : MonoBehaviour
                 position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
                 transform.position = position;
             }
-            if (position.y == levelClear.y && movementDisabled)
+            if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
             {
                 shipCanMoveUp = false;
+                Monetization.canDisplayAd = true;
                 movingToCenter = true;
                 transitionToLevel2 = true;
                 level1EndMovement = true;
@@ -99,9 +100,10 @@ public class ShipMovement : MonoBehaviour
                 position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
                 transform.position = position;
             }
-            if (position.y == levelClear.y && movementDisabled)
+            if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
             {
                 shipCanMoveUp = false;
+                Monetization.canDisplayAd = true;
                 movingToCenter = true;
                 transitionToLevel3 = true;
                 level2EndMovement = true;

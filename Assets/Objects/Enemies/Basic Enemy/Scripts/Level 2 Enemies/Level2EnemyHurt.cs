@@ -69,7 +69,6 @@ public class Level2EnemyHurt : MonoBehaviour
                 gameObject.GetComponent<SpriteRenderer>().sprite = enemyIdle2;
             }
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -83,8 +82,7 @@ public class Level2EnemyHurt : MonoBehaviour
             {
                 Destroy(gameObject);
                 level2Enemies--;
-                AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+                EnemyExplosion.laserSound = true;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
             }
         }
@@ -97,8 +95,7 @@ public class Level2EnemyHurt : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 level2Enemies--;
-                AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+                EnemyExplosion.fireSound = true;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }
@@ -111,8 +108,7 @@ public class Level2EnemyHurt : MonoBehaviour
             if (enemyHealth <= 0)
             {
                 level2Enemies--;
-                AudioSource.PlayClipAtPoint(poweredLaserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+                EnemyExplosion.poweredLaserSound = true;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }

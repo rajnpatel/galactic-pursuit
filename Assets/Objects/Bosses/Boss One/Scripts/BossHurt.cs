@@ -33,9 +33,8 @@ public class BossHurt : MonoBehaviour
             StartCoroutine(bossHit());
             if (bossHealth <= 0)
             {
+                EnemyExplosion.laserSound = true;
                 Destroy(gameObject);
-                AudioSource.PlayClipAtPoint(laserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 if (Level1EnemyHurt.level1Enemies == 1)
                 {
@@ -68,8 +67,7 @@ public class BossHurt : MonoBehaviour
             Instantiate(enemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
             if (bossHealth <= 0)
             {
-                AudioSource.PlayClipAtPoint(fireImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+                EnemyExplosion.fireSound = true;
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
                 if (Level1EnemyHurt.level1Enemies == 1)
@@ -102,8 +100,7 @@ public class BossHurt : MonoBehaviour
             StartCoroutine(bossHit());
             if (bossHealth <= 0)
             {
-                AudioSource.PlayClipAtPoint(poweredLaserImpactSound, new Vector2(0, 0));
-                AudioSource.PlayClipAtPoint(explosionSound, new Vector2(0, 0));
+                EnemyExplosion.poweredLaserSound = true;
                 Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
                 if (Level1EnemyHurt.level1Enemies == 1)
