@@ -53,7 +53,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5bc0ec974150a343b2eb3bc953882ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 7
   enemyExplosion: {fileID: 3357265873869856190, guid: 51755bd2d3c053a41911dcc2d6ba3e10,
     type: 3}
   enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
@@ -495,7 +494,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d8e5d27487fa1c34aac754f4c7db2d97, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
