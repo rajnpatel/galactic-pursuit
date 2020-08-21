@@ -1785,7 +1785,6 @@ GameObject:
   - component: {fileID: 911372811}
   - component: {fileID: 911372812}
   - component: {fileID: 911372813}
-  - component: {fileID: 911372814}
   - component: {fileID: 911372815}
   m_Layer: 0
   m_Name: SceneManager
@@ -1881,18 +1880,6 @@ MonoBehaviour:
   currentScene: Level 1
   sceneName: Level 2
   transitionAnim: {fileID: 554563980}
---- !u!114 &911372814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 911372808}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c0c5a0d39cdef42baacef287d9a0fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &911372815
 AudioSource:
   m_ObjectHideFlags: 0
