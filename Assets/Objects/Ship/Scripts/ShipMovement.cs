@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.Advertisements;
 
 public class ShipMovement : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class ShipMovement : MonoBehaviour
     public static bool movingToCenter = true;
     public static bool initialMove = true;
     public static bool shipCanMoveUp = false;
+    string GooglePlay_ID = "3758045";
+    bool TestMode = false;
 
     private void Start()
     {
@@ -46,6 +49,7 @@ public class ShipMovement : MonoBehaviour
         levelClear.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0f, 1.5f, 1))).y);
         position = transform.position;
         target.y = ((Camera.main.ViewportToWorldPoint(new Vector3(0, 0.06f, 1))).y);
+        Advertisement.Initialize(GooglePlay_ID, TestMode);
     }
 
     private void Update()
@@ -72,8 +76,8 @@ public class ShipMovement : MonoBehaviour
             }
             if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
             {
+                Advertisement.Show();
                 shipCanMoveUp = false;
-                Monetization.canDisplayAd = true;
                 movingToCenter = true;
                 transitionToLevel2 = true;
                 level1EndMovement = true;
@@ -102,8 +106,8 @@ public class ShipMovement : MonoBehaviour
             }
             if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
             {
+                Advertisement.Show();
                 shipCanMoveUp = false;
-                Monetization.canDisplayAd = true;
                 movingToCenter = true;
                 transitionToLevel3 = true;
                 level2EndMovement = true;
