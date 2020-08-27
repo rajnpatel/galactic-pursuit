@@ -118,7 +118,7 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Ship.hasDied = false;
         ShipMovement.movementDisabled = false;
-        ShipMovement.level1EndMovement = true;
+        ShipMovement.movingToCenter = false;
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)
         {
@@ -145,7 +145,7 @@ public class SceneTransitions : MonoBehaviour
         SceneManager.LoadScene(sceneName);
         Ship.hasDied = false;
         ShipMovement.movementDisabled = false;
-        ShipMovement.level1EndMovement = true;
+        ShipMovement.movingToCenter = false;
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)
         {

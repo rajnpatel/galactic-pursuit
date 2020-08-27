@@ -56,6 +56,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (level1Transition && level1EndMovement)
         {
+            shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForLevel2());
         }
         if (!level1EndMovement)
@@ -86,6 +87,7 @@ public class ShipMovement : MonoBehaviour
 
         if (level2Transition && level2EndMovement)
         {
+            shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForLevel3());
         }
         if (!level2EndMovement)
@@ -115,6 +117,7 @@ public class ShipMovement : MonoBehaviour
         }
         if (endGameTransition && endGameMovement)
         {
+            shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForEndGame());
         }
         if (!endGameMovement)
@@ -481,7 +484,6 @@ public class ShipMovement : MonoBehaviour
     public IEnumerator disableShipMovementForLevel2()
     {
         yield return new WaitForSeconds(2.0f);
-        shipCanMoveUp = true;
         movementDisabled = true;
         level1EndMovement = false;
         level1Transition = false;
@@ -490,7 +492,6 @@ public class ShipMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         movingToCenter = true;
-        shipCanMoveUp = true;
         movementDisabled = true;
         level2EndMovement = false;
         level2Transition = false;
@@ -500,7 +501,6 @@ public class ShipMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         movingToCenter = true;
-        shipCanMoveUp = true;
         movementDisabled = true;
         endGameMovement = false;
         endGameTransition = false;
