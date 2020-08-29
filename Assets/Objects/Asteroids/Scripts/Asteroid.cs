@@ -14,6 +14,7 @@ public class Asteroid : MonoBehaviour
     public GameObject FirePowerUp;
     public GameObject ShieldPowerUp;
     public GameObject LifePowerUp;
+    public GameObject AsteroidExplosion;
     private AudioClip laserImpactSound;
     private readonly float powerUpDelay = .01f;
     private float RandomNum;
@@ -54,48 +55,155 @@ public class Asteroid : MonoBehaviour
         }
         if (asteroidHealth <= 0)
         {
+            Instantiate(AsteroidExplosion, new Vector3(transform.position.x, transform.position.y - 0.1f), transform.rotation);
             AsteroidAppear.asteroidSound = true;
             Destroy(gameObject);
 
-            if (Random.Range(1, 5) == 1 && canAppear)
+            if (Ship.shipHealth != 3)
             {
-                Instantiate(LaserPowerUp,
-                    transform.position,
-                    transform.rotation);
-                canAppear = false;
-                StartCoroutine(NoAppear());
+                if (Lives.lives == 3)
+                {
+                    if (Random.Range(1, 4) == 1 && canAppear)
+                    {
+                        Instantiate(LaserPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 4) == 2 && canAppear)
+                    {
+                        Instantiate(HealthPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 4) == 3 && canAppear)
+                    {
+                        Instantiate(FirePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else
+                    {
+                        Instantiate(ShieldPowerUp,
+                        transform.position,
+                        transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                }
+                else if (Lives.lives != 3)
+                {
+                    if (Random.Range(1, 5) == 1 && canAppear)
+                    {
+                        Instantiate(LaserPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 5) == 2 && canAppear)
+                    {
+                        Instantiate(HealthPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 5) == 3 && canAppear)
+                    {
+                        Instantiate(FirePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 5) == 4 && canAppear)
+                    {
+                        Instantiate(LifePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else
+                    {
+                        Instantiate(ShieldPowerUp,
+                        transform.position,
+                        transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                }
             }
-            else if (Random.Range(1, 5) == 2 && canAppear)
+            else if (Ship.shipHealth == 3)
             {
-                Instantiate(HealthPowerUp,
-                    transform.position,
-                    transform.rotation);
-                canAppear = false;
-                StartCoroutine(NoAppear());
-            }
-            else if (Random.Range(1, 5) == 3 && canAppear)
-            {
-                Instantiate(FirePowerUp,
-                    transform.position,
-                    transform.rotation);
-                canAppear = false;
-                StartCoroutine(NoAppear());
-            }
-            else if (Random.Range(1, 5) == 4 && canAppear)
-            {
-                Instantiate(LifePowerUp,
-                    transform.position,
-                    transform.rotation);
-                canAppear = false;
-                StartCoroutine(NoAppear());
-            }
-            else
-            {
-                Instantiate(ShieldPowerUp,
-                transform.position,
-                transform.rotation);
-                canAppear = false;
-                StartCoroutine(NoAppear());
+                if (Lives.lives != 3)
+                {
+                    if (Random.Range(1, 4) == 1 && canAppear)
+                    {
+                        Instantiate(LaserPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 4) == 2 && canAppear)
+                    {
+                        Instantiate(FirePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 4) == 3 && canAppear)
+                    {
+                        Instantiate(LifePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else
+                    {
+                        Instantiate(ShieldPowerUp,
+                        transform.position,
+                        transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                }
+                else if (Lives.lives == 3)
+                {
+                    if (Random.Range(1, 3) == 1 && canAppear)
+                    {
+                        Instantiate(LaserPowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else if (Random.Range(1, 3) == 2 && canAppear)
+                    {
+                        Instantiate(FirePowerUp,
+                            transform.position,
+                            transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                    else
+                    {
+                        Instantiate(ShieldPowerUp,
+                        transform.position,
+                        transform.rotation);
+                        canAppear = false;
+                        StartCoroutine(NoAppear());
+                    }
+                }
             }
         }
         if (col.gameObject.CompareTag("Ship") || col.gameObject.CompareTag("Shield")) Destroy(gameObject);

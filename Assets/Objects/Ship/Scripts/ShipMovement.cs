@@ -56,6 +56,7 @@ public class ShipMovement : MonoBehaviour
     {
         if (level1Transition && level1EndMovement)
         {
+            level1Transition = false;
             shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForLevel2());
         }
@@ -72,7 +73,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 14f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
@@ -87,6 +88,7 @@ public class ShipMovement : MonoBehaviour
 
         if (level2Transition && level2EndMovement)
         {
+            level2Transition = false;
             shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForLevel3());
         }
@@ -103,7 +105,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 14f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled && shipCanMoveUp)
@@ -117,6 +119,7 @@ public class ShipMovement : MonoBehaviour
         }
         if (endGameTransition && endGameMovement)
         {
+            endGameTransition = false;
             shipCanMoveUp = true;
             StartCoroutine(disableShipMovementForEndGame());
         }
@@ -132,7 +135,7 @@ public class ShipMovement : MonoBehaviour
             {
                 columnPosition = 3;
                 movingToCenter = false;
-                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 13.5f);
+                position.y = Mathf.MoveTowards(transform.position.y, levelClear.y, Time.deltaTime * 14f);
                 transform.position = position;
             }
             if (position.y == levelClear.y && movementDisabled)
@@ -486,7 +489,6 @@ public class ShipMovement : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         movementDisabled = true;
         level1EndMovement = false;
-        level1Transition = false;
     }
     public IEnumerator disableShipMovementForLevel3()
     {
@@ -494,7 +496,6 @@ public class ShipMovement : MonoBehaviour
         movingToCenter = true;
         movementDisabled = true;
         level2EndMovement = false;
-        level2Transition = false;
     }
 
     public IEnumerator disableShipMovementForEndGame()
@@ -503,6 +504,5 @@ public class ShipMovement : MonoBehaviour
         movingToCenter = true;
         movementDisabled = true;
         endGameMovement = false;
-        endGameTransition = false;
     }
 }
