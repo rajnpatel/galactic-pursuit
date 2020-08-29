@@ -8,6 +8,9 @@ public class SceneTransitions : MonoBehaviour
     public string sceneName;
     public Animator transitionAnim;
     private bool transitionEndGameToMainMenu = true;
+    private AudioSource[] audioSources;
+    private AudioClip victory;
+
     private void Update()
     {
         if (Input.GetMouseButton(0) && currentScene == "Main Menu" || Input.GetMouseButton(0) && currentScene == "Game Over")
@@ -170,13 +173,14 @@ public class SceneTransitions : MonoBehaviour
         transitionAnim.SetTrigger("End");
         yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(sceneName);
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("Main Menu");
     }
 
     private IEnumerator EndGameToMainMenu()
     {
-        yield return new WaitForSeconds(1f);
+        audioSources = GetComponents<AudioSource>();
+        victory = audioSources[0].clip;
+        audioSources[0].PlayOneShot(victory);
+        yield return new WaitForSeconds(2.5f);
         transitionAnim.SetTrigger("End");
         SceneManager.LoadScene("Main Menu");
     }
