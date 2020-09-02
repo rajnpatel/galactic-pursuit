@@ -12,6 +12,7 @@ public class Level2EnemyHurt : MonoBehaviour
     private AudioClip poweredLaserImpactSound;
     public GameObject enemyExplosion;
     public GameObject enemyFire;
+    public GameObject blueEnemyFire;
     public bool canAnimate = true;
     public bool enemy1 = true;
     public bool enemy2 = false;
@@ -109,6 +110,46 @@ public class Level2EnemyHurt : MonoBehaviour
             {
                 level2Enemies--;
                 EnemyExplosion.poweredLaserSound = true;
+                Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+        if (col.gameObject.CompareTag("BlueShipLaser"))
+        {
+            enemyHealth -= 2;
+            StartCoroutine(enemyHurt());
+            audioSources[0].PlayOneShot(laserImpactSound);
+            if (enemyHealth <= 0)
+            {
+                EnemyExplosion.laserSound = true;
+                level2Enemies--;
+                Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+        if (col.gameObject.CompareTag("BlueFireProjectile"))
+        {
+            enemyHealth -= 3;
+            StartCoroutine(enemyHurt());
+            audioSources[2].PlayOneShot(fireImpactSound);
+            Instantiate(blueEnemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
+            if (enemyHealth <= 0)
+            {
+                EnemyExplosion.fireSound = true;
+                level2Enemies--;
+                Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+            }
+        }
+        if (col.gameObject.CompareTag("BluePoweredLaser"))
+        {
+            enemyHealth -= 2;
+            StartCoroutine(enemyHurt());
+            audioSources[3].PlayOneShot(poweredLaserImpactSound);
+            if (enemyHealth <= 0)
+            {
+                EnemyExplosion.poweredLaserSound = true;
+                level2Enemies--;
                 Instantiate(enemyExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
                 Destroy(gameObject);
             }

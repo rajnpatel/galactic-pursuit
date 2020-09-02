@@ -2103,6 +2103,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2387169928836676703, guid: 976ec453e4f0548b0875ed0b8dc7b772,
+        type: 3}
+      propertyPath: BlueFireProjectile
+      value: 
+      objectReference: {fileID: 2503310751459121315, guid: 7e8d744ffb660294eaf4b9d3e9b7fec3,
+        type: 3}
     - target: {fileID: 5951736630951161136, guid: 976ec453e4f0548b0875ed0b8dc7b772,
         type: 3}
       propertyPath: m_RootOrder
@@ -2585,7 +2591,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 486eb70489c63e840b95821009c2c19a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.85
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0

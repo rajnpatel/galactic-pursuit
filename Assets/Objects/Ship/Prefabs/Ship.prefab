@@ -52,12 +52,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de55a6334fb4ca843851235329e00556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioData: {fileID: 0}
   ShipLaser: {fileID: 4323674457895942769, guid: 27ad8272f71368146aa23cd14d6d0b79,
     type: 3}
-  FireBeam: {fileID: 5212862763143328713, guid: bd4c90c89fb9cbc44a162d3aea857df4,
+  FireProjectile: {fileID: 5212862763143328713, guid: bd4c90c89fb9cbc44a162d3aea857df4,
     type: 3}
   PoweredLaser: {fileID: 4007792991189766704, guid: 4216753a2013792489168375c898be86,
+    type: 3}
+  BlueShipLaser: {fileID: 4231310551667042873, guid: 867ddf0d97e28c44a84bad7b625cb599,
+    type: 3}
+  BlueFireProjectile: {fileID: 2503310751459121315, guid: 7e8d744ffb660294eaf4b9d3e9b7fec3,
+    type: 3}
+  BluePoweredLaser: {fileID: 8476278299404828284, guid: 9d1c4bfda443bbb45a0983352b809041,
     type: 3}
   PoweredLaserMuzzle: {fileID: 2471688815610259378, guid: e249ea3ab838d2c45b1db558aa12a972,
     type: 3}
@@ -110,9 +115,6 @@ MonoBehaviour:
   detectSwipeOnlyAfterRelease: 0
   canMove: 1
   movingShip: 0
-  movingToCenter: 1
-  poweredLaserMuzzle: {fileID: 2471688815610259378, guid: e249ea3ab838d2c45b1db558aa12a972,
-    type: 3}
 --- !u!212 &6857071572901219992
 SpriteRenderer:
   m_ObjectHideFlags: 0

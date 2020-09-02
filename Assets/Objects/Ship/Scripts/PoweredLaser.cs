@@ -7,7 +7,6 @@ public class PoweredLaser : MonoBehaviour
     private Rigidbody2D rb;
     private const float velX = 0;
     private float speed = 60f;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,4 +27,5 @@ public class PoweredLaser : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

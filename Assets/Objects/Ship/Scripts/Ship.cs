@@ -48,6 +48,22 @@ public class Ship : MonoBehaviour
             col.gameObject.CompareTag("Asteroid"))
             if (shield == false && !Lives.respawning && !ShipMovement.movementDisabled)
             {
+                if (ShipShoot.blueWeapons)
+                {
+                    ShipShoot.blueWeapons = false;
+                    if (ShipShoot.weapon1)
+                    {
+                        ShipShoot.canShoot = true;
+                    }
+                    if (ShipShoot.weapon2)
+                    {
+                        ShipShoot.canFire = true;
+                    }
+                    if (ShipShoot.weapon3)
+                    {
+                        ShipShoot.canShootPoweredLaser = true;
+                    }
+                }
                 shipHealth -= 1;
                 audioSources[1].PlayOneShot(shipImpact);
                 animator.SetTrigger("Damaged");

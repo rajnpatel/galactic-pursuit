@@ -205,12 +205,12 @@ public class ShipMovement : MonoBehaviour
             {
                 case TouchPhase.Began:
                     if (Input.GetTouch(0).position.x < Screen.width / 2 &&
-                        Input.GetTouch(0).position.y < Screen.height / 2 && PauseMenu.gameIsPaused == false)
+                        Input.GetTouch(0).position.y < Screen.height / 1.5 && PauseMenu.gameIsPaused == false)
                     {
                         moveLeft = true;
                     }
                     else if (Input.GetTouch(0).position.x > Screen.width / 2 &&
-                             Input.GetTouch(0).position.y < Screen.height / 2 && PauseMenu.gameIsPaused == false)
+                             Input.GetTouch(0).position.y < Screen.height / 1.5 && PauseMenu.gameIsPaused == false)
                     {
                         moveRight = true;
                     }

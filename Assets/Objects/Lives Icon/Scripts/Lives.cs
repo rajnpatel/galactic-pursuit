@@ -67,7 +67,14 @@ public class Lives : MonoBehaviour
         ShipShoot.weapon1 = true;
         ShipShoot.weapon2 = false;
         ShipShoot.weapon3 = false;
-        ShipShoot.canShoot = true;
+        if (ShipShoot.blueWeapons)
+        {
+            ShipShoot.blueCanShoot = true;
+        }
+        else if (!ShipShoot.blueWeapons)
+        {
+            ShipShoot.canShoot = true;
+        }
         Ship.shipHealth = 3;
         Ship.shield = false;
         ShipMovement.movementDisabled = false;

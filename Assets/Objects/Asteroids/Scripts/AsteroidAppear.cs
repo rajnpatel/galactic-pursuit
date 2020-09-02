@@ -6,9 +6,7 @@ public class AsteroidAppear : MonoBehaviour
     public GameObject Asteroid;
     private bool canAppear = true;
     private float RandomNum;
-    public static bool asteroidSound = false;
     private AudioSource[] audioSources;
-    private AudioClip explosionSound;
     private AudioClip laserImpactSound;
 
     private void Start()
@@ -18,12 +16,6 @@ public class AsteroidAppear : MonoBehaviour
     }
     private void Update()
     {
-        if (asteroidSound)
-        {
-            asteroidSound = false;
-            audioSources[0].PlayOneShot(laserImpactSound);
-        }
-
         float[] xCoordinates = {
 
     (Camera.main.ViewportToWorldPoint(new Vector3(0.1f, 0f, 1))).x,
