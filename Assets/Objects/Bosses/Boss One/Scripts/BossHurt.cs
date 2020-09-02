@@ -12,6 +12,7 @@ public class BossHurt : MonoBehaviour
     private AudioClip poweredLaserImpactSound;
     public GameObject bossExplosion;
     public GameObject enemyFire;
+    public GameObject blueEnemyFire;
     public Sprite boss;
     public Sprite bossHurt;
 
@@ -29,6 +30,39 @@ public class BossHurt : MonoBehaviour
         if (col.gameObject.CompareTag("ShipBullet"))
         {
             bossHealth -= 1;
+            audioSources[0].PlayOneShot(laserImpactSound);
+            StartCoroutine(bossHit());
+            if (bossHealth <= 0)
+            {
+                EnemyExplosion.laserSound = true;
+                Destroy(gameObject);
+                Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                if (Level1EnemyHurt.level1Enemies == 1)
+                {
+                    Level1EnemyHurt.level1Enemies--;
+                    ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
+                }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
+                    }
+                }
+            }
+        }
+        if (col.gameObject.CompareTag("BlueShipLaser"))
+        {
+            bossHealth -= 2;
             audioSources[0].PlayOneShot(laserImpactSound);
             StartCoroutine(bossHit());
             if (bossHealth <= 0)
@@ -93,9 +127,76 @@ public class BossHurt : MonoBehaviour
                 }
             }
         }
+        if (col.gameObject.CompareTag("BlueFireProjectile"))
+        {
+            bossHealth -= 3;
+            audioSources[2].PlayOneShot(fireImpactSound);
+            StartCoroutine(bossHit());
+            Instantiate(blueEnemyFire, new Vector3(transform.position.x - 0.15f, transform.position.y + 0.1f), transform.rotation);
+            if (bossHealth <= 0)
+            {
+                EnemyExplosion.fireSound = true;
+                Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+                if (Level1EnemyHurt.level1Enemies == 1)
+                {
+                    Level1EnemyHurt.level1Enemies--;
+                    ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
+                }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
+                    }
+                }
+            }
+        }
         if (col.gameObject.CompareTag("PoweredLaser"))
         {
             bossHealth -= 1;
+            audioSources[3].PlayOneShot(poweredLaserImpactSound);
+            StartCoroutine(bossHit());
+            if (bossHealth <= 0)
+            {
+                EnemyExplosion.poweredLaserSound = true;
+                Instantiate(bossExplosion, new Vector3(transform.position.x, transform.position.y), transform.rotation);
+                Destroy(gameObject);
+                if (Level1EnemyHurt.level1Enemies == 1)
+                {
+                    Level1EnemyHurt.level1Enemies--;
+                    ShipMovement.level1Transition = true;
+                }
+                if (Level2EnemyHurt.level2Enemies <= 2)
+                {
+                    Level2EnemyHurt.level2Enemies--;
+                    if (Level2EnemyHurt.level2Enemies == 0)
+                    {
+                        ShipMovement.level2Transition = true;
+                    }
+                }
+                if (Level3EnemyHurt.level3Enemies <= 11)
+                {
+                    Level3EnemyHurt.level3Enemies--;
+                    if (Level3EnemyHurt.level3Enemies == 0)
+                    {
+                        ShipMovement.endGameTransition = true;
+                    }
+                }
+            }
+        }
+        if (col.gameObject.CompareTag("BluePoweredLaser"))
+        {
+            bossHealth -= 2;
             audioSources[3].PlayOneShot(poweredLaserImpactSound);
             StartCoroutine(bossHit());
             if (bossHealth <= 0)

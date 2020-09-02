@@ -83,6 +83,8 @@ MonoBehaviour:
     type: 3}
   enemyFire: {fileID: 6447135011728279640, guid: b1ae177585640514ca29d36fb8d9599c,
     type: 3}
+  blueEnemyFire: {fileID: 4541520074672158670, guid: 5bea5928e739b40458f6ef0afbbd0fca,
+    type: 3}
   canAnimate: 1
   enemy1: 1
   enemy2: 0
@@ -204,7 +206,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c087e3cc26bcb43beb15bab82b215912, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -396,7 +398,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ed148b3d7f2ce384cb780ce157ce0364, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0

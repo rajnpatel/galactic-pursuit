@@ -49,6 +49,8 @@ public class SceneTransitions : MonoBehaviour
                 ShipShoot.weapon2 = true;
                 ShipShoot.weapon1 = false;
                 ShipShoot.canFire = true;
+                ShipShoot.blueWeapons = true;
+                ShipShoot.blueCanFire = true;
                 Time.timeScale = 5.0f;
             }
             else
@@ -74,6 +76,7 @@ public class SceneTransitions : MonoBehaviour
         ShipMovement.endGameMovement = true;
         ShipMovement.columnPosition = 3;
         ShipMovement.movingToCenter = true;
+        ShipShoot.blueWeapons = false;
         ShipShoot.canShoot = true;
         ShipShoot.canFire = false;
         ShipShoot.weapon1 = true;
@@ -125,15 +128,36 @@ public class SceneTransitions : MonoBehaviour
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)
         {
-            ShipShoot.canShoot = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanShoot = true;
+            }
+            else
+            {
+                ShipShoot.canShoot = true;
+            }
         }
         if (ShipShoot.weapon2)
         {
-            ShipShoot.canFire = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanFire = true;
+            }
+            else
+            {
+                ShipShoot.canFire = true;
+            }
         }
         if (ShipShoot.weapon3)
         {
-            ShipShoot.canShootPoweredLaser = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanShootPoweredLaser = true;
+            }
+            else
+            {
+                ShipShoot.canShootPoweredLaser = true;
+            }
             PoweredLaserMuzzle.canAnimateMuzzle = true;
         }
         if (Ship.shield)
@@ -152,15 +176,36 @@ public class SceneTransitions : MonoBehaviour
         ShipMovement.initialMove = true;
         if (ShipShoot.weapon1)
         {
-            ShipShoot.canShoot = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanShoot = true;
+            }
+            else
+            {
+                ShipShoot.canShoot = true;
+            }
         }
         if (ShipShoot.weapon2)
         {
-            ShipShoot.canFire = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanFire = true;
+            }
+            else
+            {
+                ShipShoot.canFire = true;
+            }
         }
         if (ShipShoot.weapon3)
         {
-            ShipShoot.canShootPoweredLaser = true;
+            if (ShipShoot.blueWeapons)
+            {
+                ShipShoot.blueCanShootPoweredLaser = true;
+            }
+            else
+            {
+                ShipShoot.canShootPoweredLaser = true;
+            }
             PoweredLaserMuzzle.canAnimateMuzzle = true;
         }
         if (Ship.shield)

@@ -56,6 +56,25 @@ public class EnemyShield : MonoBehaviour
             StartCoroutine(shieldDamaged());
             health -= 2;
         }
+        if (col.gameObject.CompareTag("BlueShipLaser"))
+        {
+            StartCoroutine(shieldDamaged());
+            audioSources[0].PlayOneShot(laserImpactSound);
+            health -= 2;
+        }
+        if (col.gameObject.CompareTag("BlueFireProjectile"))
+        {
+            StartCoroutine(shieldDamaged());
+            audioSources[2].PlayOneShot(fireImpactSound);
+            health -= 3;
+        }
+        if (col.gameObject.CompareTag("BluePoweredLaser"))
+        {
+            StartCoroutine(shieldDamaged());
+            audioSources[1].PlayOneShot(poweredLaserImpactSound);
+            health -= 2;
+        }
+
         if (health <= 0)
         {
             shield = false;

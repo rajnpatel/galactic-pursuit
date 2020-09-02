@@ -25,6 +25,10 @@ TagManager:
   - LaserPowerUp
   - LifePowerUp
   - EnemyShield
+  - WeaponsPowerUp
+  - BlueShipLaser
+  - BluePoweredLaser
+  - BlueFireProjectile
   layers:
   - Default
   - TransparentFX
