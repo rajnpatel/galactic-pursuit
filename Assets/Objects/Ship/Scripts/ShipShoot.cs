@@ -139,7 +139,7 @@ public class ShipShoot : MonoBehaviour
     private IEnumerator BlueNoShootPoweredLaser()
     {
         yield return new WaitForSeconds(.075f);
-        Instantiate(BluePoweredLaser, new Vector3(transform.position.x + 0.04f, transform.position.y + 0.5f), transform.rotation);
+        Instantiate(BluePoweredLaser, new Vector3(transform.position.x - 0.02f, transform.position.y + 0.5f), transform.rotation);
         blueCanShootPoweredLaser = true;
     }
 }
