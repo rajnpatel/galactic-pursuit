@@ -1,0 +1,5 @@
+<dependencies>
+<androidPackages>
+<androidPackage spec="androidx.fragment:fragment:1.1.0" />
+</androidPackages>
+</dependencies>
